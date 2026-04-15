@@ -1,0 +1,32 @@
+# Claude Code / Cowork local state
+.claude/settings.local.json
+**/.claude/settings.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Temp and scratch
+*.tmp
+~$*
+*.swp
+*.swo
+unpacked/
+**/unpacked/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Node (if any binder adds code later)
+node_modules/
+
+# Editor configs we don't need to share
+.vscode/
+.idea/
+
+# Office temp
+~WRL*.tmp
