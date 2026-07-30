@@ -327,3 +327,57 @@ sequence. Four groups added:
 Left in place: 3 genuinely cold event-side people in "Queued for Outreach" (Kate Callahan at
 Starch Creative is the strongest, carrying the VP Account Director title now targeted), and
 Kirsten Craig in "Not Interested / Bounced".
+
+---
+
+## Batch 1 ENROLLED AND SENDING (2026-07-30)
+
+Approved by Mary Anne 2026-07-30. **25 contacts enrolled active in sequence
+`6a6ab19632f101001070b98d`, sending from maryanne@voxmerch.com. Email 1 goes out in the next
+sending window.** Nobody skipped, all 25 at step 1, all emails verified at enrichment
+(25 Apollo credits consumed, 0 misses, 4,071 credits were available beforehand).
+
+Selection rule: **one person per company**, 25 distinct companies, all agency-segment account
+leads. Deliberate choice so no firm receives two emails at once, which is what makes outreach
+read as machine-generated. Apollo list label: "Tranche 1 Batch 1 - Aug 2026".
+
+| Name | Title | Company | Apollo contact id |
+|---|---|---|---|
+| Madeline Swaggert | Senior Account Director, Client Services | SoHo Experiential | 6a6bc6cfa5be350014ac0c04 |
+| Carrie Goggans | VP Client Services | A Little Bird | 6a6bc6cfa5be350014ac0c05 |
+| Stephanie Mosbey | Account Director | Infinity Marketing Team | 6a6bc6cfa5be350014ac0c06 |
+| Elise Barker | Account Director | Agency EA | 6a6bc6cfa5be350014ac0c07 |
+| Jennifer Macaluso | VP, Client Services | Invision | 6a6bc6cfa5be350014ac0c08 |
+| Rachel Konar | VP Client Services | Aardvark Studios | 6a6bc6cfa5be350014ac0c09 |
+| Cora Carpenter | Senior Account Director | Spitfire Event Marketing | 6a6bc6cfa5be350014ac0c0a |
+| Mary Hall | VP of Client Services | MSM Inc. | 6a6bc6cfa5be350014ac0c0b |
+| Cherisse Coley | Account Director | Proof Media Mix | 6a6bc6cfa5be350014ac0c0c |
+| Maggie Covert | VP Client Services | Be The Machine | 6a6bc6cfa5be350014ac0c0d |
+| David Bixler | VP Client Services | Next Marketing | 6a6bc6cfa5be350014ac0c0e |
+| Emma Jack | Account Director | Legacy Marketing | 6a6bc6cfa5be350014ac0c0f |
+| Matthew Cohen | Director of Events, Experiential | Horizon Sports & Experiences | 6a6bc6cfa5be350014ac0c10 |
+| Julianne Rymsha | VP Client Services and Events | MELT | 6a6bc6cfa5be350014ac0c11 |
+| Sarah Fleisher | Director of Client Services | IHEARTCOMIX | 6a6bc6cfa5be350014ac0c12 |
+| Allison Smith | Account Director, Client Services | The iLUKA Collective | 6a6bc6cfa5be350014ac0c13 |
+| Olivia Hoekstra | Account Director, Client Services and BD | Kindle Communications | 6a6bc6cfa5be350014ac0c14 |
+| Sarah Williams | VP Client Services | BeCore | 6a6bc6cfa5be350014ac0c15 |
+| Ali Leskow | VP, Client Services | We Are BMF | 6a6bc6cfa5be350014ac0c16 |
+| Eileen Case | VP, Client Services | Brewco Marketing Group | 6a6bc6cfa5be350014ac0c17 |
+| Megan Walker | VP Client Services | Origin Agency | 6a6bc6cfa5be350014ac0c18 |
+| Katelyn Scott | Account Director | TRIGGER(HOUSE | 6a6bc6cfa5be350014ac0c19 |
+| Kristen Wickett | Account Director | Activate Inc. | 6a6bc6cfa5be350014ac0c1a |
+| Megan Walley | Account Director | Groundswell Experiential | 6a6bc6cfa5be350014ac0c1b |
+| Bree McCaffrey | Director of Client Services | Propac Agency | 6a6bc6cfa5be350014ac0c1c |
+
+**What is being watched, and why it matters.** The reply leg of the tracking chain is still
+unverified: Mary Anne's own test reply has not registered, because her vacation responder fired
+first and Apollo paused her enrollment as out-of-office. Delivery and OOO handling are proven.
+The first genuine prospect reply is now the live test of (a) Apollo marking replied and halting
+further sends, and (b) the Monday bridge automation creating an Outreach Pipeline item. If (a)
+fails, someone who replies keeps receiving emails, so this is checked daily until a reply lands.
+
+Also watching: bounce rate (a spike means the verified-email filter is not doing its job) and
+Kristen Wickett's address, the one catchall domain in the batch.
+
+**Remaining in tranche 1 and not yet enrolled: 214 people.** Batch 2 goes out only after this
+batch's deliverability and reply handling look clean.
