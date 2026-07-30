@@ -45,48 +45,73 @@ scope, and the sequence was misconstructed from the start. All performance data 
   Warmup traffic counts against the mailbox ceiling.
 - Stop-on-reply: on. Pause on out-of-office: on.
 
-## Email copy (for Mary Anne's approval)
+## Email copy (APPROVED by Mary Anne 2026-07-30, loaded into Apollo)
 
-Voice rules applied: subject 2 to 4 words lowercase, complete sentences throughout including the
-ask, leads with the intelligence asset, one ask with named days, no banned phrases, no em-dashes,
-additive framing that never disparages badge scanning or any activation category. Signature is
-appended automatically by Apollo, so bodies do not repeat the name.
+This is the live copy, verified against Apollo's stored templates. Mechanism facts corrected by
+the founder: attendees speak for **up to 30 seconds**, and **40 seconds later** the
+characteristics of their voice have become the artwork. Never write "about 20 seconds" or
+"30 seconds later." Voice pass applied per mary-anne-voice: peer stance, reader's world first,
+"Make it a great day!" close with the Outlook signature appending the name block after it.
 
 ### Email 1, day 0. Subject: `what the room believes`
 
 > Hi {{first_name}},
 >
-> Every post-event report says how many people stopped by. Almost none can say what those people
-> believe about the problem the brand exists to solve.
+> After every event, you can tell your client how many people stopped by. What you usually can't
+> tell them is what those people actually think about the problem their brand is trying to solve.
 >
-> VoxMerch produces that second report. An attendee speaks for about 20 seconds, and 30 seconds
-> later their voice has become one-of-a-kind artwork they take home. The brand keeps the read on
-> what the room said. At a Fortune 500 healthcare company's event, 89% of attendees opted in.
+> That second answer is what I built VoxMerch to deliver. An attendee steps up to the mic and
+> talks for up to 30 seconds about a question your client cares about. Forty seconds later, the
+> characteristics of their voice have become a one-of-a-kind piece of artwork they take home, and
+> your client walks away with a real read on what the room believes. At a recent event for a
+> Fortune 500 healthcare company, 89% of attendees said yes to it.
 >
-> Do you have 15 minutes on Tuesday or Wednesday to see it live?
+> Do you have 15 minutes on Tuesday or Wednesday? I would love to show you how it works live.
+>
+> Make it a great day!
 
 ### Email 2, day 3. Subject: `your next pitch`
 
 > Hi {{first_name}},
 >
-> A different thought from my last note. If {{company}} is pitching an event right now, I will
-> build the activation section of that proposal for you at no cost: artwork mockups on your
-> client's brand, a sample of the intelligence report they would receive, and the pricing already
-> worked out, all presented under your name.
+> A different thought from my last note. If you have an event pitch on your desk right now, I
+> will build the activation piece of it for you at no cost: artwork mockups on your client's
+> brand, a sample of the report they would get back, and pricing already worked out, all under
+> your name.
 >
-> There is no fee unless your client approves it and the event books. Which pitch should we build
-> it around?
+> If your client passes, it cost you nothing. If they book it, we run it together.
+>
+> Which pitch should we build it around?
+>
+> Make it a great day!
 
-### Email 3, day 7. Subject: `198 activations`
+### Email 3, day 7. Subject: `the polite booth answer`
 
 > Hi {{first_name}},
 >
-> Last note from me. At a recent two-day conference for a Fortune 500 healthcare company, we ran
-> 198 activations, and 89% of the attendees we invited opted in. The client left with artwork
-> their people still talk about and a report on what their audience actually believes.
+> Last note from me. One observation before I go, from the show floor.
 >
-> If that would help {{company}} win a Q4 pitch, reply and I will build you a client-ready
-> proposal this week. Otherwise I will check back in the new year.
+> When attendees talk into a mic and watch their own words become artwork, they stop giving the
+> polite booth answer. They say what they really think about the problem the brand exists to
+> solve, and the brand gets to keep that. It is the difference between telling your client how
+> many people came by and telling them what the room believes.
+>
+> If that is something the brands you work with would want, reply and I will set up 15 minutes
+> to show you how it runs. And if the timing is off, I will check back in the new year.
+>
+> Make it a great day!
+
+Email 3 was rewritten off the 198-activations case study because it duplicated email 1's proof.
+The arc: email 1 is the idea with the proof, email 2 is the Pitch Kit offer, email 3 is the
+observation that explains why it works.
+
+### Operational note from this build, recorded so it is never repeated
+
+Apollo normalizes plus-aliases when deduplicating: creating a "test contact" at
+maryanne+seqtest@voxmerch.com matched and overwrote Mary Anne's own contact record (restored
+immediately). There is no safe way to fabricate an internal test contact on the founder's own
+address. The tracking test enrolls her real contact record instead, and her reply finishes her
+out of the sequence via mark_finished_if_reply.
 
 Phone and LinkedIn carry the remaining touches outside Apollo: Debra dials from the Monday queue,
 Mary Anne sends LinkedIn requests manually, capped at 100 per week.
