@@ -6,7 +6,9 @@
 - Search A (Agency): titles account director / VP client services / director of client services / VP of events / director of events / director of experiential marketing / head of event strategy, company keyword tags "experiential marketing", "brand activation", "event marketing". Total raw results: 4,646 (pages 1-3 pulled, 300 rows).
 - Search B (Planner): titles account director / director of events / VP of events / event strategist / managing director, company keyword tags "meeting planning", "event management", "destination management", "event production", "exhibit house". Total raw results: 3,721 (pages 1-3 pulled, 300 rows).
 
-**Curation counts:** 600 rows fetched, approximately 569 unique people after de-duplication across the two searches. Kept: 250 people across 178 companies (Agency: 120 people / 82 companies; Planner/DMC/Production/Exhibit: 130 people / 96 companies). Dropped: approximately 319. Note: the company count runs above the 80-100 estimate because most qualifying firms surfaced only 1-2 matching titles; the 3-per-company cap was applied wherever more appeared.
+**Curation counts:** 600 rows fetched, approximately 569 unique people after de-duplication across the two searches. Initially kept 250 people across 178 companies; **11 rows were then held back after a cross-check against the old Sales Development Pipeline board, leaving 239 people across 173 companies ready to enroll.** Dropped at curation: approximately 319. Note: the company count runs above the original 80-100 estimate because most qualifying firms surfaced only 1-2 matching titles; the 3-per-company cap was applied wherever more appeared.
+
+**Enrollment status:** approved by Mary Anne 2026-07-30 subject to the suppression check below. Contacts not yet created in Apollo, nobody enrolled.
 
 ## Segment: Agency
 
@@ -41,18 +43,12 @@
 | Cassie Lama | Vice President, Client Services | Legacy Marketing | legacymarketing.com | 54a1fac57468693cdd389f02 |
 | Emma Jack | Account Director | Legacy Marketing | legacymarketing.com | 54a831a77468696de752b766 |
 | Hannah Thomas | Account Director | Legacy Marketing | legacymarketing.com | 5d106672f65125223f57ef83 |
-| Denise Kaplan | Partner, Account Director | Encore Worldwide | encoreww.com | 57db7b44a6da98689b4107af |
-| Mary Burke | Senior Account Director | Encore Worldwide | encoreww.com | 590848bef6512597bb9af169 |
-| Matt Schwartz | Vice President, Senior Account Director | Encore Worldwide | encoreww.com | 5e7432eeafb98f00012a7536 |
 | Matthew Cohen | Director of Events (Experiential Marketing) | Horizon Sports & Experiences | horizonse.com | 60fe894c11e44e0001a06f52 |
 | Julianne Rymsha | Vice President Client Services and Events | MELT | meltatl.com | 63a446ae6ca7230001552648 |
 | Sarah Fleisher | Director of Client Services | IHEARTCOMIX | iheartcomix.com | 54a551867468692cf0b65e8e |
 | Allison Smith | Account Director, Client Services | The iLUKA Collective | ilukacollective.com | 54a6f5f174686962203b3908 |
 | Ryan Herrmann | Vice President of Client Services | VMG (Valeureux) | vmgagency.com | 66fde92e1701200001523a60 |
 | Olivia Hoekstra | Account Director, Client Services & Business Development | Kindle Communications | kindlecommunications.com | 684e80d8cc98a50001999600 |
-| Andy Herman | Vice President, Sponsorships & Events | Event Marketing Partners | eventmarketingpartners.com | 54a2b00e7468692e71cdf835 |
-| Lara Gallagher | VP Meetings & Events | Event Marketing Partners | eventmarketingpartners.com | 600db45c58eed90001630385 |
-| Diane Braga | Senior Director, Event Marketing | Event Marketing Partners | eventmarketingpartners.com | 54a4b77c7468693209fc955d |
 | Sarah Williams | Vice President Client Services | BeCore | becore.com | 61039267b2b44300018f2bb8 |
 | Katie Schunk | VP, Client Services | BeCore | becore.com | 54c2527074686916397d2d8d |
 | Megan Riggi | SVP, Client Services | BeCore | becore.com | 55c89ea77369641168850208 |
@@ -64,7 +60,6 @@
 | Meghan Lastrina | Account Director | TRIGGER(HOUSE | triggerhouse.com | 5b73c3c6f874f7576d3ef35b |
 | Bree McCaffrey | Director of Client Services | Propac Agency | propac.agency | 564be8caa6da9836b101a12f |
 | Suzie Omley | Director of Client Services | Sweet&Chilli | sweetandchilli.com | 5ed471f8718c04008c22e1e4 |
-| Skylar Ratner | Director of Events and Exhibitions | Buzznation | buzznationmarketing.com | 67e8afd75699630001119928 |
 | Kendra Ninaltowski | Vice President of Client Services | Newbridge Marketing | newbridgemarketing.com | 54a4374e7468693b8cff7635 |
 | Monica Mayzer | Vice President, Client Services | AMCI Global | amciglobal.com | 54a74ebe746869705a22cf28 |
 | Kristen Wickett | Account Director | Activate Inc. | activateexp.com | 624fa64fb95f46000175374d |
@@ -103,8 +98,6 @@
 | Zoey Carpenter | Account Director | We Are Alexander | wearealexander.com | 5d676dfc80f93e72f0891c01 |
 | Michael Junne | Account Director | Creative Riff | creativeriff.com | 54ebbeda7468694311e0851b |
 | Taylor Moran | Account Director | SSG/Brandintense | ssgbrandintense.com | 6616361b2a1bdc0007b6da9c |
-| Rob Knowles | Group Account Director | Green House Agency | wearegreenhouse.com | 54a306cb7468693fda4ac54e |
-| Kristen Oates | Group Account Director | Green House Agency | wearegreenhouse.com | 557144db7369642c2f0c0e00 |
 | Clarke Colon | AVP, Events | Fuse | fusemarketing.com | 54a70da87468696de7cbf110 |
 | Dayna Simms | Vice President of Client Services | myWHY Agency | mywhyagency.com | 60edc8d26b65ed0001740bcf |
 | Tiffany Hoang | Account Director | Ayatana XP | ayatanaxp.com | 6566fac63f3c2e00013cb528 |
@@ -153,8 +146,6 @@
 | Kristen Abraham | Vice President, Client Services | MC² | mc-2.com | 649b31b5e388e10001dbf716 |
 | Caleb Foust | Director of Client Services | Brave Exhibits | braveexhibits.com | 562af12cf3e5bb2008000345 |
 | Rachelle Guion | Vice President Client Services | RES Exhibit Services | res-exhibits.com | 5f0e8805bf2ad3000142ea21 |
-| Marybeth Gieser | Account Director | Hamilton | hamilton-ex.com | 55708b587369647c835c0000 |
-| Marie Kulik | Account Director | Hamilton | hamilton-ex.com | 54a701dc7468696de779950c |
 | Steve Olenczuk | Executive Vice President, Client Services | EWI Worldwide | ewiworldwide.com | 6675305cc10fcd0001292bc1 |
 | Eric Rose | Director, Client Services | CGS Premier | cgspremier.com | 54a51d1c7468692cf08f0e7e |
 | Jason Kelly | Account Director | Holt Experiential | holtxp.com | 6112afd4f2e3dc0001101faa |
@@ -287,3 +278,52 @@
 - Capped Pinnacle (24 raw rows), PRA Business Events (22), Enterprise Events Group (13), Access TCA (9) at 3 each, preferring client services and account-lead titles.
 
 Status: awaiting Mary Anne's approval. No contacts created, no emails revealed, nobody enrolled.
+
+---
+
+## Held from email: prior contact by the deprecated sequence
+
+Cross-checked against Monday board 18409325257 (Sales Development Pipeline) on 2026-07-30. Five
+companies in this tranche already received the deprecated "Event Activation 3-Touch" sequence,
+most recently 2026-07-27. Three rows were the **same human being** already emailed, carrying a
+different Apollo person id (a duplicate-record problem in Apollo worth watching): Lara Gallagher,
+Matt Schwartz, Skylar Ratner.
+
+Emailing these people or their colleagues a first-touch cold intro days after a different
+sequence from the same sender is the one mistake that damages a target account. All 11 rows are
+therefore **routed to Debra for a phone approach instead of email.** A call from a human after a
+few emails is a legitimate follow-up; a fourth email pretending to be a first email is not.
+
+| Name | Title | Company | Domain | Apollo person id | Note |
+|---|---|---|---|---|---|
+| Denise Kaplan | Partner, Account Director | Encore Worldwide | encoreww.com | 57db7b44a6da98689b4107af | Colleagues emailed |
+| Mary Burke | Senior Account Director | Encore Worldwide | encoreww.com | 590848bef6512597bb9af169 | Colleagues emailed |
+| Matt Schwartz | Vice President, Senior Account Director | Encore Worldwide | encoreww.com | 5e7432eeafb98f00012a7536 | **Duplicate of an already-emailed contact** |
+| Andy Herman | Vice President, Sponsorships & Events | Event Marketing Partners | eventmarketingpartners.com | 54a2b00e7468692e71cdf835 | Colleagues emailed |
+| Lara Gallagher | VP Meetings & Events | Event Marketing Partners | eventmarketingpartners.com | 600db45c58eed90001630385 | **Duplicate of an already-emailed contact** |
+| Diane Braga | Senior Director, Event Marketing | Event Marketing Partners | eventmarketingpartners.com | 54a4b77c7468693209fc955d | Colleagues emailed |
+| Skylar Ratner | Director of Events and Exhibitions | Buzznation | buzznationmarketing.com | 67e8afd75699630001119928 | **Duplicate of an already-emailed contact** |
+| Rob Knowles | Group Account Director | Green House Agency | wearegreenhouse.com | 54a306cb7468693fda4ac54e | Colleagues emailed |
+| Kristen Oates | Group Account Director | Green House Agency | wearegreenhouse.com | 557144db7369642c2f0c0e00 | Colleagues emailed |
+| Marybeth Gieser | Account Director | Hamilton | hamilton-ex.com | 55708b587369647c835c0000 | Colleagues emailed |
+| Marie Kulik | Account Director | Hamilton | hamilton-ex.com | 54a701dc7468696de779950c | Colleagues emailed |
+
+**Deliberately NOT held: Activate Inc. (activateexp.com).** The only prior contact there, Kirsten
+Craig, hard-bounced on 2026-05-04, so no email was ever delivered to that company. Its three
+account directors stay in the enrollable list.
+
+## Board cleanup performed 2026-07-30
+
+Monday board 18409325257 was reorganized so the deprecated audience can never leak into the new
+sequence. Four groups added:
+
+| Group | Records | Disposition |
+|---|---|---|
+| Archive - Company Placeholders (safe to delete) | 12 | Company names with no person, no email, no title. Delete from the Monday UI when convenient. |
+| Deferred - Distributors (Jan 1) | 44 | Real people at real distributors. Segment deferred; HALO covers it until January. Re-cut titles toward national account directors before use. |
+| Do Not Enroll - Prior Sequence (Call Only) | 31 | Received the deprecated sequence. Route to Debra's dial queue, never to email. |
+| Out of Scope - Non-US | 1 | Hugo Deveugele, IN Marketing, South Africa. |
+
+Left in place: 3 genuinely cold event-side people in "Queued for Outreach" (Kate Callahan at
+Starch Creative is the strongest, carrying the VP Account Director title now targeted), and
+Kirsten Craig in "Not Interested / Bounced".
