@@ -8,7 +8,7 @@
 
 **Curation counts:** 600 rows fetched, approximately 569 unique people after de-duplication across the two searches. Initially kept 250 people across 178 companies; **11 rows were then held back after a cross-check against the old Sales Development Pipeline board, leaving 239 people across 173 companies ready to enroll.** Dropped at curation: approximately 319. Note: the company count runs above the original 80-100 estimate because most qualifying firms surfaced only 1-2 matching titles; the 3-per-company cap was applied wherever more appeared.
 
-**Enrollment status:** approved by Mary Anne 2026-07-30 subject to the suppression check below. Contacts not yet created in Apollo, nobody enrolled.
+**Enrollment status:** approved by Mary Anne 2026-07-30. **Batch 1 of 25 is enrolled and sending** (see the Batch 1 section at the end of this file). The remaining 214 are researched but not created in Apollo and not enrolled.
 
 ## Segment: Agency
 
