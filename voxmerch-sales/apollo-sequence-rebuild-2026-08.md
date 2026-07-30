@@ -1,7 +1,15 @@
 # Apollo Sequence Rebuild: Event Agencies and Planners
 
-Build date: 2026-07-30. Status: **specified, awaiting Apollo connector re-authorization to
-execute, and Mary Anne's copy approval to activate.**
+Build date: 2026-07-30. Status: **built in Apollo, inactive, awaiting Mary Anne's copy approval
+to activate.** New sequence ID: `6a6ab19632f101001070b98d`.
+
+Executed 2026-07-30 after connector re-auth (full remove and reconnect fixed a read-only OAuth
+grant): old sequence deactivated and renamed "[DEPRECATED - DO NOT USE]", its templates replaced
+with deprecation notices; new sequence created inactive with all three touches verified in the
+API response, 25/day cap on step 1. Remaining manual cleanup: the old sequence still holds 11
+paused contacts at step 2. They are inert (sequence inactive and deprecated), and the contacts
+search API cannot filter by sequence, so remove them in the Apollo UI from the deprecated
+sequence's Contacts tab.
 
 This replaces "VoxMerch - Event Activation 3-Touch" (69e5407d76f3d1001dda3c7b), which is being
 scrapped: the audience contained company names without people, international companies out of
