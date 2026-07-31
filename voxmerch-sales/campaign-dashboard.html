@@ -1,0 +1,708 @@
+<title>VoxMerch Outbound: Campaign Dashboard</title>
+
+<style>
+  :root {
+    --ink:        #0E1A20;
+    --paper:      #F2F5F6;
+    --surface:    #FFFFFF;
+    --edge:       #D3DDE0;
+    --slate:      #5A6B73;
+    --slate-dim:  #81959E;
+    --petrol:     #1E5A6E;
+    --petrol-soft:#E2EDF0;
+    --good:       #2E7D53;
+    --warn:       #B4791A;
+    --stop:       #9E3535;
+    --idle:       #97A6AC;
+
+    --serif: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+    --step: clamp(0.75rem, 0.7rem + 0.2vw, 0.82rem);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:        #DEE8EA;
+      --paper:      #0B1418;
+      --surface:    #12212A;
+      --edge:       #243A44;
+      --slate:      #9DB0B8;
+      --slate-dim:  #6E838C;
+      --petrol:     #63AEC7;
+      --petrol-soft:#16323D;
+      --good:       #56B181;
+      --warn:       #D9A445;
+      --stop:       #D67474;
+      --idle:       #5E7178;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink:        #DEE8EA;
+    --paper:      #0B1418;
+    --surface:    #12212A;
+    --edge:       #243A44;
+    --slate:      #9DB0B8;
+    --slate-dim:  #6E838C;
+    --petrol:     #63AEC7;
+    --petrol-soft:#16323D;
+    --good:       #56B181;
+    --warn:       #D9A445;
+    --stop:       #D67474;
+    --idle:       #5E7178;
+  }
+  :root[data-theme="light"] {
+    --ink:        #0E1A20;
+    --paper:      #F2F5F6;
+    --surface:    #FFFFFF;
+    --edge:       #D3DDE0;
+    --slate:      #5A6B73;
+    --slate-dim:  #81959E;
+    --petrol:     #1E5A6E;
+    --petrol-soft:#E2EDF0;
+    --good:       #2E7D53;
+    --warn:       #B4791A;
+    --stop:       #9E3535;
+    --idle:       #97A6AC;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: clamp(1.25rem, 3vw, 2.75rem) clamp(1rem, 3vw, 2rem) 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.75rem, 3vw, 2.75rem);
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: var(--step);
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    font-weight: 600;
+    color: var(--slate-dim);
+    margin: 0;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 1.4rem + 2.2vw, 3rem);
+    line-height: 1.1;
+    text-wrap: balance;
+    margin: 0.35rem 0 0;
+    letter-spacing: -0.015em;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.2rem, 1rem + 0.7vw, 1.5rem);
+    line-height: 1.2;
+    text-wrap: balance;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 650;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+
+  p { margin: 0; }
+
+  .lede {
+    color: var(--slate);
+    font-size: 1rem;
+    max-width: 62ch;
+    margin-top: 0.75rem;
+  }
+
+  header.masthead {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 1.25rem;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-top: 1.1rem;
+    font-family: var(--mono);
+    font-size: var(--step);
+    color: var(--slate);
+    font-variant-numeric: tabular-nums;
+  }
+  .meta-row b { color: var(--ink); font-weight: 600; }
+
+  /* ---- headline figures ---- */
+  .figures {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1px;
+    background: var(--edge);
+    border: 1px solid var(--edge);
+  }
+  .fig {
+    background: var(--surface);
+    padding: 1.15rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .fig-label {
+    font-size: var(--step);
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    font-weight: 600;
+    color: var(--slate-dim);
+  }
+  .fig-num {
+    font-family: var(--mono);
+    font-size: clamp(1.9rem, 1.5rem + 1.4vw, 2.6rem);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .fig-note {
+    font-size: 0.83rem;
+    color: var(--slate);
+    font-variant-numeric: tabular-nums;
+  }
+  .fig-num.is-zero { color: var(--slate-dim); }
+
+  /* ---- diagnostic ladder ---- */
+  .ladder { display: flex; flex-direction: column; gap: 1px; background: var(--edge); border: 1px solid var(--edge); }
+
+  .rung {
+    background: var(--surface);
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+    gap: 0 1rem;
+    padding: 1.1rem 1.25rem;
+    align-items: start;
+    border-left: 4px solid var(--stripe, var(--idle));
+  }
+  .rung[data-state="live"]    { --stripe: var(--good); }
+  .rung[data-state="early"]   { --stripe: var(--petrol); }
+  .rung[data-state="gate"]    { --stripe: var(--warn); }
+  .rung[data-state="pending"] { --stripe: var(--idle); }
+
+  .rung-n {
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    color: var(--slate-dim);
+    font-variant-numeric: tabular-nums;
+    padding-top: 0.1rem;
+  }
+  .rung-body { display: flex; flex-direction: column; gap: 0.45rem; min-width: 0; }
+  .rung-diag {
+    font-size: 0.88rem;
+    color: var(--slate);
+    max-width: 68ch;
+  }
+  .rung-diag b { color: var(--ink); font-weight: 600; }
+  .rung-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    align-items: flex-end;
+  }
+  .rung-val {
+    font-family: var(--mono);
+    font-size: 1.35rem;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .rung-target {
+    font-family: var(--mono);
+    font-size: var(--step);
+    color: var(--slate-dim);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .pill {
+    display: inline-block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .pill.good    { color: var(--good); }
+  .pill.warn    { color: var(--warn); }
+  .pill.stop    { color: var(--stop); }
+  .pill.petrol  { color: var(--petrol); }
+  .pill.idle    { color: var(--idle); }
+
+  /* ---- two-up panels ---- */
+  .duo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--edge);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .rows { display: flex; flex-direction: column; gap: 0.7rem; }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    font-size: 0.9rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px dotted var(--edge);
+  }
+  .row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .row-k { color: var(--slate); min-width: 0; }
+  .row-v {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .chain { display: flex; flex-direction: column; gap: 0.85rem; }
+  .link {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.7rem;
+    align-items: start;
+    font-size: 0.9rem;
+  }
+  .link-dot {
+    width: 0.7rem; height: 0.7rem;
+    border-radius: 50%;
+    margin-top: 0.35rem;
+    flex: none;
+  }
+  .link[data-ok="yes"] .link-dot { background: var(--good); }
+  .link[data-ok="no"]  .link-dot { background: transparent; border: 2px solid var(--warn); }
+  .link-txt { min-width: 0; }
+  .link-txt small { display: block; color: var(--slate); font-size: 0.82rem; margin-top: 0.1rem; }
+
+  /* ---- funnel ---- */
+  .funnel { display: flex; flex-direction: column; gap: 1px; background: var(--edge); border: 1px solid var(--edge); }
+  .fstep {
+    background: var(--surface);
+    padding: 0.85rem 1.25rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 5.5rem;
+    gap: 1rem;
+    align-items: center;
+  }
+  .fbar-wrap { display: flex; flex-direction: column; gap: 0.4rem; min-width: 0; }
+  .fbar-label { font-size: 0.88rem; }
+  .fbar-label span { color: var(--slate); }
+  .fbar {
+    height: 0.5rem;
+    background: var(--petrol-soft);
+    position: relative;
+    overflow: hidden;
+  }
+  .fbar i {
+    position: absolute;
+    inset: 0 auto 0 0;
+    background: var(--petrol);
+    display: block;
+  }
+  .fnum {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  /* ---- next ---- */
+  .dates { display: flex; flex-direction: column; gap: 0.9rem; }
+  .date-item {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 1rem;
+    font-size: 0.9rem;
+    align-items: baseline;
+  }
+  .date-when {
+    font-family: var(--mono);
+    font-size: var(--step);
+    color: var(--petrol);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .date-what strong { font-weight: 620; }
+  .date-what small { display: block; color: var(--slate); font-size: 0.83rem; margin-top: 0.15rem; }
+
+  .footnote {
+    font-size: 0.85rem;
+    color: var(--slate);
+    border-top: 1px solid var(--edge);
+    padding-top: 1.25rem;
+    max-width: 72ch;
+  }
+  .footnote code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--petrol-soft);
+    padding: 0.1em 0.35em;
+  }
+
+  .section { display: flex; flex-direction: column; gap: 1rem; }
+  .section-head { display: flex; flex-direction: column; gap: 0.3rem; }
+  .section-head p { color: var(--slate); font-size: 0.92rem; max-width: 68ch; }
+
+  a { color: var(--petrol); }
+  a:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--petrol);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  @media (max-width: 620px) {
+    .rung { grid-template-columns: 1.75rem minmax(0, 1fr); }
+    .rung-right { grid-column: 2; align-items: flex-start; text-align: left; flex-direction: row; flex-wrap: wrap; gap: 0.6rem; align-items: baseline; }
+    .fstep { grid-template-columns: minmax(0, 1fr) 4rem; }
+    .date-item { grid-template-columns: 1fr; gap: 0.2rem; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">VoxMerch · Event Agencies and Planners · Aug–Oct 2026</p>
+    <h1>Is the campaign working?</h1>
+    <p class="lede">One page, six gates. Each gate tells you something different when it stalls, so the number that
+      matters is always the first one that is red. Everything below is read from Apollo and Monday.</p>
+    <div class="meta-row">
+      <span>Snapshot <b>30 Jul 2026, 6:35pm CT</b></span>
+      <span>Day <b>1</b> of 93</span>
+      <span>First revenue target <b>1 Oct</b></span>
+    </div>
+  </header>
+
+  <section class="figures" aria-label="Headline figures">
+    <div class="fig">
+      <span class="fig-label">Emails delivered</span>
+      <span class="fig-num">5</span>
+      <span class="fig-note">of 25 enrolled · 20 still pacing out</span>
+    </div>
+    <div class="fig">
+      <span class="fig-label">Replies</span>
+      <span class="fig-num is-zero">0</span>
+      <span class="fig-note">the only Apollo number treated as real</span>
+    </div>
+    <div class="fig">
+      <span class="fig-label">Pitch Kits accepted</span>
+      <span class="fig-num is-zero">0</span>
+      <span class="fig-note">August gate is 5 · this is the month-1 test</span>
+    </div>
+    <div class="fig">
+      <span class="fig-label">Cash collected</span>
+      <span class="fig-num is-zero">$0</span>
+      <span class="fig-note">Deals board empty · 0 open deals</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>The six gates</h2>
+      <p>Each gate feeds the next, so a stall low on the ladder makes everything above it unreadable. The diagnosis
+        column is the part worth keeping: it says what a miss at that specific gate means, which is not the same
+        answer as "send more."</p>
+    </div>
+
+    <div class="ladder">
+
+      <div class="rung" data-state="live">
+        <span class="rung-n">01</span>
+        <div class="rung-body">
+          <h3>Sends actually leaving the building</h3>
+          <p class="rung-diag">The old campaign died here: <b>35 emails in its entire life</b> against a 1,550/day
+            ceiling, because two approval gates required a founder who was busy closing to also be the send button.
+            Both gates are gone. If this number stops moving, nothing else on this page means anything.</p>
+        </div>
+        <div class="rung-right">
+          <span class="rung-val">25</span>
+          <span class="rung-target">day-one cap 25</span>
+          <span class="pill good">Running</span>
+        </div>
+      </div>
+
+      <div class="rung" data-state="live">
+        <span class="rung-n">02</span>
+        <div class="rung-body">
+          <h3>Deliverability holding</h3>
+          <p class="rung-diag">Zero bounces and zero spam blocks on the first five. If bounce rate crosses
+            <b>2%</b>, the verified-email filter is not doing its job and the list needs fixing before another
+            batch goes out. This is the gate that fails silently.</p>
+        </div>
+        <div class="rung-right">
+          <span class="rung-val">0.0%</span>
+          <span class="rung-target">ceiling 2.0%</span>
+          <span class="pill good">Clean</span>
+        </div>
+      </div>
+
+      <div class="rung" data-state="early">
+        <span class="rung-n">03</span>
+        <div class="rung-body">
+          <h3>Replies</h3>
+          <p class="rung-diag">Too early to read: the batch went out hours ago. Judge this at full volume, not now.
+            If it is still zero after roughly 150 sends, the problem is <b>the message</b>, and the emails get
+            rewritten before anything else changes. Opens and clicks are ignored on purpose, since security
+            scanners inflate both.</p>
+        </div>
+        <div class="rung-right">
+          <span class="rung-val">0</span>
+          <span class="rung-target">read at ~150 sends</span>
+          <span class="pill petrol">Too early</span>
+        </div>
+      </div>
+
+      <div class="rung" data-state="gate">
+        <span class="rung-n">04</span>
+        <div class="rung-body">
+          <h3>Pitch Kits accepted</h3>
+          <p class="rung-diag">The real month-one test, and the one number worth losing sleep over. A partner has to
+            name a live client and a dated event to accept, so everyone who says yes is in-market by definition.
+            Under 5 by 31 August means <b>the offer is wrong</b>: stop scaling and rebuild it rather than buying
+            more volume against a proposition that is not landing.</p>
+        </div>
+        <div class="rung-right">
+          <span class="rung-val">0</span>
+          <span class="rung-target">Aug 5 · Sep 12 · Oct 20</span>
+          <span class="pill warn">Month-1 gate</span>
+        </div>
+      </div>
+
+      <div class="rung" data-state="pending">
+        <span class="rung-n">05</span>
+        <div class="rung-body">
+          <h3>Qualified conversations</h3>
+          <p class="rung-diag">Kits accepted but conversations not converting points at <b>price or tier fit</b>,
+            not the message. The qualifying question that sets the tier is one sentence: how many days, and how many
+            kiosks running each day? A two-day show with two kiosks is 600 capacity, which is Advanced.</p>
+        </div>
+        <div class="rung-right">
+          <span class="rung-val">0</span>
+          <span class="rung-target">Aug 8 · Sep 20 · Oct 30</span>
+          <span class="pill idle">Pending</span>
+        </div>
+      </div>
+
+      <div class="rung" data-state="pending">
+        <span class="rung-n">06</span>
+        <div class="rung-body">
+          <h3>Signed partners with a dated event, and cash</h3>
+          <p class="rung-diag">Conversations converting but nothing closing means the blocker sits
+            <b>past the partner, with their client</b>, and the Pitch Kit has to speak to that client directly.
+            Only when every gate above is healthy and volume is the sole shortfall is "spend more" the right answer.
+            One Advanced deal collects $7,020; Enterprise collects $10,500.</p>
+        </div>
+        <div class="rung-right">
+          <span class="rung-val">0</span>
+          <span class="rung-target">Oct 3–6 signed · $15–45K</span>
+          <span class="pill idle">Pending</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="duo">
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>Sending health</h2>
+        <p>One mailbox, roughly seven weeks of domain age, Apollo warmup running alongside.</p>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="row-k">Bounces</span><span class="row-v">0 of 5</span></div>
+        <div class="row"><span class="row-k">Hard bounces</span><span class="row-v">0</span></div>
+        <div class="row"><span class="row-k">Spam blocks</span><span class="row-v">0</span></div>
+        <div class="row"><span class="row-k">Unsubscribes</span><span class="row-v">0</span></div>
+        <div class="row"><span class="row-k">Daily cap, week 1</span><span class="row-v">25</span></div>
+        <div class="row"><span class="row-k">Ramp, weeks 2 and 3</span><span class="row-v">40 → 50+</span></div>
+        <div class="row"><span class="row-k">Apollo credits left</span><span class="row-v">4,046</span></div>
+        <div class="row"><span class="row-k">Catchall addresses to watch</span><span class="row-v">1</span></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>Tracking chain</h2>
+        <p>Four legs have to work for a reply to reach you without anyone watching. Two are proven.</p>
+      </div>
+      <div class="chain">
+        <div class="link" data-ok="yes">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-txt">Email sends unattended
+            <small>Proven 30 Jul. No approval gate, no manual step.</small>
+          </span>
+        </div>
+        <div class="link" data-ok="yes">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-txt">Out-of-office pauses, then resumes on the stated date
+            <small>Proven 30 Jul. Apollo read a return date out of the auto-reply and scheduled the resume. Nobody is dropped for being on vacation.</small>
+          </span>
+        </div>
+        <div class="link" data-ok="no">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-txt">A reply marks them finished and stops further sends
+            <small>Unverified. The first real reply is the live test. If this leg fails, someone who answers keeps getting emails.</small>
+          </span>
+        </div>
+        <div class="link" data-ok="no">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-txt">Monday creates the pipeline item and notifies you
+            <small>Unverified, waiting on the same first reply. Board 18407308519.</small>
+          </span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>Audience, from universe to inbox</h2>
+      <p>Scale was the ask, and it exists: roughly 8,400 verified account leads at US agencies and resale-capable
+        planner firms. The narrowing below is deliberate at every step.</p>
+    </div>
+    <div class="funnel">
+      <div class="fstep">
+        <div class="fbar-wrap">
+          <span class="fbar-label">Matched in Apollo <span>· US only, verified email, account-lead titles</span></span>
+          <span class="fbar"><i style="width:100%"></i></span>
+        </div>
+        <span class="fnum">8,367</span>
+      </div>
+      <div class="fstep">
+        <div class="fbar-wrap">
+          <span class="fbar-label">Pulled for curation <span>· first three pages of each search</span></span>
+          <span class="fbar"><i style="width:7.2%"></i></span>
+        </div>
+        <span class="fnum">600</span>
+      </div>
+      <div class="fstep">
+        <div class="fbar-wrap">
+          <span class="fbar-label">Survived curation <span>· 178 companies, max 3 per firm</span></span>
+          <span class="fbar"><i style="width:3.0%"></i></span>
+        </div>
+        <span class="fnum">250</span>
+      </div>
+      <div class="fstep">
+        <div class="fbar-wrap">
+          <span class="fbar-label">Enrollable <span>· 11 held back, already contacted by the old sequence</span></span>
+          <span class="fbar"><i style="width:2.9%"></i></span>
+        </div>
+        <span class="fnum">239</span>
+      </div>
+      <div class="fstep">
+        <div class="fbar-wrap">
+          <span class="fbar-label">Enrolled and sending <span>· 25 companies, one person each</span></span>
+          <span class="fbar"><i style="width:0.3%"></i></span>
+        </div>
+        <span class="fnum">25</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="duo">
+    <section class="panel">
+      <div class="section-head">
+        <h2>What happens next</h2>
+      </div>
+      <div class="dates">
+        <div class="date-item">
+          <span class="date-when">31 Jul</span>
+          <span class="date-what"><strong>First deliverability read</strong>
+            <small>Bounces, spam blocks, and any reply. Batch 2 waits on this.</small></span>
+        </div>
+        <div class="date-item">
+          <span class="date-when">4 Aug</span>
+          <span class="date-what"><strong>Test enrollment resumes on its own</strong>
+            <small>Proves the out-of-office resume works end to end without a human.</small></span>
+        </div>
+        <div class="date-item">
+          <span class="date-when">11 Aug</span>
+          <span class="date-what"><strong>GRIT activation</strong>
+            <small>Chase the client release beforehand. Decides whether Q4 selling uses a named case study or an anonymized one.</small></span>
+        </div>
+        <div class="date-item">
+          <span class="date-when">31 Aug</span>
+          <span class="date-what"><strong>Month-1 verdict: 5 Pitch Kits accepted</strong>
+            <small>Below that, the offer gets rebuilt rather than scaled.</small></span>
+        </div>
+        <div class="date-item">
+          <span class="date-when">13 Oct</span>
+          <span class="date-what"><strong>IMEX America</strong>
+            <small>Largest planner gathering in the window. Free for qualified industry professionals.</small></span>
+        </div>
+        <div class="date-item">
+          <span class="date-when">1 Jan</span>
+          <span class="date-what"><strong>Distributor segment opens</strong>
+            <small>44 contacts parked and waiting. Titles need re-cutting toward national account directors first.</small></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>Pipeline hygiene</h2>
+        <p>The old audience was reorganized so it cannot leak into this campaign.</p>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="row-k">Company placeholders archived</span><span class="row-v">12</span></div>
+        <div class="row"><span class="row-k">Distributors parked for January</span><span class="row-v">44</span></div>
+        <div class="row"><span class="row-k">Prior-sequence contacts, call only</span><span class="row-v">31</span></div>
+        <div class="row"><span class="row-k">Out of scope, non-US</span><span class="row-v">1</span></div>
+        <div class="row"><span class="row-k">Duplicate people caught before sending</span><span class="row-v">3</span></div>
+        <div class="row"><span class="row-k">Companies held for a phone call instead</span><span class="row-v">5</span></div>
+      </div>
+      <p class="rung-diag">The old sequence delivered 35 emails across its lifetime and produced zero replies. Its
+        reported open and click rates are treated as void, not as a baseline: the sequence was misbuilt, the sample
+        was 35, and a high click rate with no replies is also the signature of link-scanning security software.</p>
+    </section>
+  </div>
+
+  <p class="footnote">This is a snapshot, not a live feed. Figures come from Apollo sequence
+    <code>6a6ab19632f101001070b98d</code>, Monday boards <code>18409325257</code> and <code>18407308519</code>, and
+    the Deals board <code>18393236419</code>. It gets refreshed on the scheduled morning check, so the timestamp at
+    the top is the one to trust. Cash collected reads from Monday and is the metric that outranks everything else
+    on the page.</p>
+
+</div>
