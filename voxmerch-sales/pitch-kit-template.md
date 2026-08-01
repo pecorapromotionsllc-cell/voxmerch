@@ -14,7 +14,7 @@ Four deliverables. One already exists.
 
 | Promised | Status | Where |
 |---|---|---|
-| Sample of the intelligence report | **Exists, and it is good** | `VoxMerch_Executive_Summary_SAMPLE.pdf` in Dropbox, `07_Product & Tech/Development/Data Insights/`. Five pages, already anonymised to `[Client Name]` and `[Respondent Name]`, carries the 198-engagement dataset without naming the client. Send as-is. |
+| Sample of the intelligence report | **Exists, and it is good** | **`VoxMerch_Executive_Full_Summary.pdf`** — the Beacon Clinical Sciences version, 11 pages. Chosen by Mary Anne over the bracketed-placeholder version because filled-in names read as a finished deliverable rather than a template. In Dropbox at `02_Sales & Channel/Distributors & Agencies/Sales Collateral/`. Send as-is. |
 | Artwork mockups on the end client's brand | Build per opportunity | Needs the client's logo and palette. The one genuinely bespoke piece. |
 | Pricing already worked out | Build per opportunity, 5 minutes | Kiosk-day math below. |
 | All under the partner's name | Build per opportunity | Partner logo on the cover, VoxMerch as the delivery engine in the footer. |
@@ -32,18 +32,41 @@ But a partner who replies should not wait a week. So:
 
 ### Tier 1 — the instant reply. Automatable, zero build time.
 
-Goes out the moment someone answers email 2. Contains:
+Goes out the moment someone answers email 2. Contains the sample report as a link, never an
+attachment, and one low-friction question.
 
-1. The existing sample intelligence report (link, never an attachment)
-2. A short note with the three questions needed to build the real kit
+**Do not ask which client, which event, or how many days and kiosks.** That was an earlier draft and
+it was wrong for two reasons. A partner replying to a cold email is curious, not committed, and three
+logistics questions turn a warm reply into homework. More basically, "kiosk-days" is VoxMerch's own
+internal unit. No agency has ever heard of it, and asking them to compute it makes them do our
+arithmetic in our language.
 
-**The three questions, which are also the qualifying questions:**
+**VoxMerch supplies the event math.** Once we know the event, we work out days, kiosks, capacity and
+tier ourselves and hand it back to them finished. That is a large part of what makes the Pitch Kit
+worth accepting.
 
-> 1. Which client and which event?
-> 2. How many days, and how many kiosks running each day?
-> 3. When does the client need the proposal?
+**Qualification moves to the 15-minute call**, which is where it always belonged. "How many days, and
+how many kiosks running each day" is a consultative question asked live, not an email form field.
 
-Question 2 is the whole sales motion in one line. It sets the tier without a negotiation.
+**Tier 1 reply copy, ready to load:**
+
+> Hi {{first_name}},
+>
+> Here is the report a client gets back after an activation, so you can see the actual format instead
+> of my description of it: [LINK]
+>
+> The names and companies in it are samples, but the numbers come from a real two-day activation.
+>
+> The offer stands whenever it is useful. When you have a client who wants something they have not
+> seen before, tell me the event and I will build the activation section of that proposal under your
+> name, with artwork mockups on their brand, this report format, and the pricing already worked out.
+>
+> Is there anything on your calendar between now and the end of the year where that would help?
+>
+> Make it a great day!
+
+One question, easy to answer, and it surfaces timing without demanding specifics they may not have
+in front of them.
 
 ### Tier 2 — the real Pitch Kit. Roughly an hour once templated.
 
@@ -113,6 +136,16 @@ August 11 GRIT activation is pending and would give a second, nameable case stud
 
 **Never attach the PDF to a cold email.** Attachments are a deliverability liability on a young
 sending domain. Always send a link.
+
+**One line to add to the sample report before it goes out at volume.** The report already discloses
+sample data in four places, but every one of those disclaimers covers *respondent* information:
+"All contact information is sample information, with no real names or titles, in this sample
+document." Nothing covers the client. So "Beacon Clinical Sciences" and the "Clinical Trials
+Innovation Summit, June 10, 2026, Boston" read as a real engagement, and the underlying numbers are
+real, which makes it more convincing rather than less. A partner could reasonably ask to speak to
+Beacon. Extend one existing disclaimer to read "client name, event and all respondent information
+are illustrative" and the exposure disappears. Everything else about the document is fine as it
+stands.
 
 ---
 
