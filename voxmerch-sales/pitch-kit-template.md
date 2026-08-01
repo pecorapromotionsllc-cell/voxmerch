@@ -1,52 +1,61 @@
 # The Pitch Kit: template and build process
 
-Drafted 2026-08-01. This is what email 2 of the outbound sequence promises. Until now it did not
-exist, which meant a partner saying yes had nothing waiting for them.
+Drafted 2026-08-01, corrected the same day against `VoxMerch_FAQs.txt`, which is the authoritative
+product reference. Several things in the first draft were wrong. They are listed at the bottom so the
+same mistakes are not reintroduced.
 
-## What the partner was promised, word for word
+## What email 2 now promises, word for word
 
 > "If you have an event pitch on your desk right now, I will build the activation piece of it for you
-> at no cost: artwork mockups on your client's brand, a sample of the report they would get back, and
-> pricing already worked out, all under your name. If your client passes, it cost you nothing. If
-> they book it, we run it together."
+> at no cost: a proposal carrying your name and your client's, with the pricing already worked out,
+> sample artwork so they can see what an attendee walks away with, and the report format your client
+> would get back after the event."
 
-Four deliverables. One already exists.
-
-| Promised | Status | Where |
+| Promised | Status | Source |
 |---|---|---|
-| Sample of the intelligence report | **Exists, and it is good** | **`VoxMerch_Executive_Full_Summary.pdf`** — the Beacon Clinical Sciences version, 11 pages. Chosen by Mary Anne over the bracketed-placeholder version because filled-in names read as a finished deliverable rather than a template. In Dropbox at `02_Sales & Channel/Distributors & Agencies/Sales Collateral/`. Send as-is. |
-| Artwork mockups on the end client's brand | Build per opportunity | Needs the client's logo and palette. The one genuinely bespoke piece. |
-| Pricing already worked out | Build per opportunity, 5 minutes | Kiosk-day math below. |
-| All under the partner's name | Build per opportunity | Partner logo on the cover, VoxMerch as the delivery engine in the footer. |
+| Proposal under the partner's name, pricing worked out | **Exists** | The Activation Configurator, self-serve in the client portal. Output carries the partner's name and their client's name. Sample: `VoxMerch_Activation_Sample_Brand_Proposal.pdf` in Sales Collateral. |
+| Sample artwork | **Exists** | Real voice-generated pieces. See the artwork note below for what can and cannot be claimed. |
+| Report format the client gets back | **Exists** | `VoxMerch_Executive_Full_Summary.pdf`, the Beacon Clinical Sciences version, 11 pages. |
 
 ---
 
-## Two tiers, and why
+## The artwork claim: get this right
+
+**The artwork is generated from the colors and characteristics of the attendee's voice.** By default
+the client's brand is not on it, and the kiosk and output carry VoxMerch branding throughout. Never
+say "artwork mockups on your client's brand" as a standard inclusion. It was in email 2 until
+2026-08-01 and it was misleading.
+
+Three distinct things, priced separately:
+
+| | What it does | Price |
+|---|---|---|
+| **Base artwork** | Voice-derived only. No client brand on the piece. | Included in every tier |
+| **White Label** | Brands the *interface and frame*: kiosk screens, primary and secondary colours, plus a free logo placement on the artwork piece with location chosen in the portal | $1,250 a la carte, included at Enterprise |
+| **Custom Brand Output** | Changes the *artwork itself*: renders in brand colours, injects brand elements, or applies thematic parameters. Still driven by each attendee's voice | From $1,500, scoped per engagement, **not available in any tier and not selectable in the portal**, needs ~3 weeks lead time |
+
+So a client who wants their brand visibly in the art is buying Custom Brand Output, three weeks
+ahead. Promising it casually in a proposal creates a delivery problem.
+
+One more constraint worth knowing: the SMS message that delivers artwork to an attendee's phone
+always identifies VoxMerch as sender and cannot be rebranded, even with White Label, because VoxMerch
+holds the FTC certification for it.
+
+---
+
+## Two tiers of response
 
 A Pitch Kit is bespoke by design. Requiring the partner to name their client and event is the
-qualifying mechanism: anyone who accepts is, by definition, working a live dated opportunity. A
-generic pre-made kit sent to everyone is a brochure, and it forfeits both the qualification and the
-thing that makes it land, which is the partner's own client's brand on the mockups.
-
-But a partner who replies should not wait a week. So:
+qualifying mechanism. A generic pre-made kit sent to everyone is a brochure.
 
 ### Tier 1 — the instant reply. Automatable, zero build time.
 
-Goes out the moment someone answers email 2. Contains the sample report as a link, never an
-attachment, and one low-friction question.
+Sends the moment someone answers email 2. Sample report as a **link, never an attachment**, plus one
+low-friction question.
 
-**Do not ask which client, which event, or how many days and kiosks.** That was an earlier draft and
-it was wrong for two reasons. A partner replying to a cold email is curious, not committed, and three
-logistics questions turn a warm reply into homework. More basically, "kiosk-days" is VoxMerch's own
-internal unit. No agency has ever heard of it, and asking them to compute it makes them do our
-arithmetic in our language.
-
-**VoxMerch supplies the event math.** Once we know the event, we work out days, kiosks, capacity and
-tier ourselves and hand it back to them finished. That is a large part of what makes the Pitch Kit
-worth accepting.
-
-**Qualification moves to the 15-minute call**, which is where it always belonged. "How many days, and
-how many kiosks running each day" is a consultative question asked live, not an email form field.
+**Do not ask which client, which event, or how many days and stations.** A partner replying to a cold
+email is curious, not committed, and logistics questions turn a warm reply into homework. VoxMerch
+supplies the event math once the event is known. Qualification belongs on the 15-minute call.
 
 **Tier 1 reply copy, ready to load:**
 
@@ -59,67 +68,69 @@ how many kiosks running each day" is a consultative question asked live, not an 
 >
 > The offer stands whenever it is useful. When you have a client who wants something they have not
 > seen before, tell me the event and I will build the activation section of that proposal under your
-> name, with artwork mockups on their brand, this report format, and the pricing already worked out.
+> name, with the pricing worked out and sample artwork so they can see what attendees walk away with.
 >
 > Is there anything on your calendar between now and the end of the year where that would help?
 >
 > Make it a great day!
 
-One question, easy to answer, and it surfaces timing without demanding specifics they may not have
-in front of them.
+### Tier 2 — the real Pitch Kit, built per opportunity.
 
-### Tier 2 — the real Pitch Kit. Roughly an hour once templated.
+The pricing half is **not** hand-built. Partners generate it themselves in the Activation
+Configurator in the client portal, and the output already carries their name and their client's name.
+The bespoke work is choosing the tier and add-ons that fit the event, plus assembling sample artwork
+and the report sample around it.
 
-Built against their named opportunity, delivered under their logo.
+**What to assemble:**
+
+1. The configurator proposal for that event, carrying the partner's name and their client's
+2. Sample artwork pieces, presented honestly as voice-generated
+3. Two or three pages of the executive summary so the client sees the real report format
+4. If the client wants their brand in the art, a note that Custom Brand Output is a scoped add-on
+   needing three weeks
 
 ---
 
-## Tier 2 structure
+## Tiers and what is actually included
 
-**Page 1 — Cover.** Partner's logo, large. "[Partner] × [End Client]: Activation Proposal".
-Event name and dates. VoxMerch appears only in the footer as the delivery platform.
+Prices below are **what the channel partner pays VoxMerch.** The partner sets their own markup to the
+brand; there is no fixed percentage, and the shareable sell sheets are built at branded merchandise
+industry standard.
 
-**Page 2 — The activation, in the client's words.** What an attendee actually does: steps up to a
-mic, speaks for up to 30 seconds on a question the client cares about, and 40 seconds later the
-characteristics of their voice have become a one-of-a-kind piece of artwork they take home. Lead with
-what the client gets, which is a real read on what the room believes, and treat the artwork as the
-mechanism that makes people willing to say it.
+| Tier | Price to partner | Activations | Extra activations | Includes |
+|---|---|---|---|---|
+| Essential | $3,500 | up to 150 | $18 each | Platform + live artwork display |
+| Plus | $7,000 | up to 300 | $16 each | + SMS artwork delivery |
+| Advanced | $11,700 | up to 500 | $14 each | + Data Insights report |
+| Enterprise | $17,500 | up to 750 | $12 each | + full White Label |
 
-**Page 3 — Artwork mockups on the end client's brand.** Three to five pieces using the client's
-actual logo and colours. This is the page that wins the meeting. Do not skip or generalise it.
+**The tier price is paid whether or not every activation is used.** A partner can buy Essential and
+run 50. The minimum is what you pay for, not what you must use.
 
-**Page 4 — The intelligence deliverable.** Two or three pages lifted from the existing sample report
-so the client sees the actual format they will receive, not a description of it.
+**A la carte add-ons:** Data Insights $2,500 · White Label $1,250 · SMS Service $850 · Custom Brand
+Output from $1,500 (scoped) · The Encore priced per item, credit-based, minimum 25 credits, US
+shipping only · Kit and Crew packaged per event.
 
-**Page 5 — Event math and investment.** Capacity is **150 activations per kiosk per 8-hour day.**
-Multiply days by kiosks to get capacity, then pick the tier that fits.
+**Kit and Crew** is the on-site option, always an add-on: 1-day 1-lead regional $1,720 (150
+activations), 2-day 2-staff regional $4,670 (300, most popular), 3-day 3-staff regional $7,820 (500).
+Freight billed at actual cost after the event, travel at cost plus 15%. Without it the partner runs
+the activation on their own equipment.
 
-| Tier | Activations | Kiosk-days | Client pays the partner | Partner's cost | Partner's margin |
-|---|---|---|---|---|---|
-| Essential | 150 | 1 | $3,500 | $2,100 | $1,400 |
-| Plus | 300 | 2 | $7,000 | $4,200 | $2,800 |
-| Advanced | 500 | 3.3 | $11,700 | $7,020 | $4,680 |
-| Enterprise | 750 | 5 | $17,500 | $10,500 | $7,000 |
+**Self-run equipment, per 150 attendees:** two tablets, two stands, one printer, two wireless mics,
+plus reliable Wi-Fi with a booster recommended.
 
-Worked example: a two-day show with two kiosks is 600 capacity, which is Advanced.
+---
 
-**Page 6 — What the client is trading it against.** Frame against what they already spend on
-giveaways and badge scanning, not against other AI vendors. Badge scanning captures a fraction of a
-room and tells you who walked past. This tells you what they think.
+## Positioning tension to be aware of
 
-**Page 7 — Guarantees, and only what VoxMerch controls.**
-- Capacity: 150 activations per kiosk per 8-hour day, or the shortfall is credited
-- Function: if the platform fails to generate and print during the event, the license fee is refunded
-- Report: intelligence report delivered within the stated number of business days
-- No opt-in-rate guarantee. Attendance is outside anyone's control and the denominator is unmeasurable.
+Email 1 leads with the intelligence asset, which is right for attention. But **Data Insights is not
+included at Essential or Plus.** It is $2,500 a la carte and only baked into Advanced and Enterprise.
+So a partner who buys the entry tier does not get the report the email described.
 
-**Page 8 — Who does what.** The partner supplies equipment, crew and on-site staffing. VoxMerch
-supplies the platform, training and the report. Partners without printing equipment run the
-art-piece version and offer Encore products as the client-facing upsell, so no printing equipment is
-required to sell this.
-
-**Advanced and Enterprise only:** VoxMerch co-staffs the partner's first activation at no extra fee.
-Do not offer this below those tiers; it costs founder travel and cannot be honoured at volume.
+This is not a reason to change the email. Data Insights is described in the FAQ as the consistent
+upsell and the thing that makes the spend pay back, so leading with it is sound. But on the call, be
+explicit that the report is an Advanced-tier capability or a $2,500 add-on, rather than letting the
+client assume it comes with the base package.
 
 ---
 
@@ -127,32 +138,51 @@ Do not offer this below those tiers; it costs founder travel and cannot be honou
 
 **Kiosk stands are required equipment, not an accessory.** At the Optum activation, day one ran
 without stands and the team approached attendees holding an iPad, which reads as a survey ambush and
-triggers refusal. That single factor explains most of the gap between 198 activations and the 300
-capacity. Put it in the partner setup checklist.
+triggers refusal. Put it in the partner setup checklist.
 
-**Proof points, and the clearance rule.** Externally: "a Fortune 500 healthcare company", 198
-activations across two days, 89% opt-in. Do not name Optum. A release from Brown & Brown for the
-August 11 GRIT activation is pending and would give a second, nameable case study.
+**Proof points and clearance.** Externally: "a Fortune 500 healthcare company", 198 activations across
+two days, 89% opt-in. Do not name Optum. The FAQ separately allows "tested multiple times at
+large-scale events, including for a Fortune 4 company." A Brown & Brown release for the August 11
+GRIT activation is pending and would give a nameable second case study.
 
-**Never attach the PDF to a cold email.** Attachments are a deliverability liability on a young
-sending domain. Always send a link.
+**Never attach a PDF to a cold email.** Attachments are a deliverability liability on a young sending
+domain. Always a link.
 
-**One line to add to the sample report before it goes out at volume.** The report already discloses
-sample data in four places, but every one of those disclaimers covers *respondent* information:
-"All contact information is sample information, with no real names or titles, in this sample
-document." Nothing covers the client. So "Beacon Clinical Sciences" and the "Clinical Trials
-Innovation Summit, June 10, 2026, Boston" read as a real engagement, and the underlying numbers are
-real, which makes it more convincing rather than less. A partner could reasonably ask to speak to
-Beacon. Extend one existing disclaimer to read "client name, event and all respondent information
-are illustrative" and the exposure disappears. Everything else about the document is fine as it
-stands.
+**Add one line to the sample report before volume sending.** It discloses sample data in four places,
+but each disclaimer covers *respondent* information only. Nothing covers the client, so "Beacon
+Clinical Sciences" and its event read as a real engagement, and the real underlying numbers make it
+more convincing. Extend one disclaimer to "client name, event and all respondent information are
+illustrative."
+
+**Consent, worth knowing if a client asks.** A voice-recording consent checkbox is required at every
+tier and states the recording is not used for biometric purposes. Audio is destroyed three days after
+the event. SMS requires a separate FTC-mandated opt-in.
 
 ---
 
-## Open decision for Mary Anne
+## OPEN QUESTION FOR MARY ANNE: the pricing model contradicts the plan
 
-Tier 1 can be automated: a reply to email 2 triggers the sample report link plus the three questions.
-That is safe because nothing in it is bespoke and nothing is claimed that is not true.
+`VoxMerch_FAQs.txt` states: *"All prices shown are client prices (the price the channel partner pays
+VoxMerch)"* and *"the distributor decides their own markup to their client."*
 
-Tier 2 should not be auto-sent. The moment it goes out generic, the mockups stop carrying the
-client's brand and the kit stops being the reason anyone says yes.
+`outbound-plan-aug-oct-2026.md` states the opposite: that $3,500 is the partner's **resale** price,
+that partner cost is 40% below, and that VoxMerch therefore collects $2,100 on an Essential.
+
+Both cannot be true, and the difference is large. On the FAQ reading, VoxMerch collects the full
+$3,500 and the partner's margin sits on top. On the plan's reading, VoxMerch collects $2,100. Every
+revenue projection in the plan, including the $15K to $45K October target, depends on which is right.
+
+This template uses the FAQ numbers, since the FAQ is the product reference. **Confirm which is
+correct and the plan's revenue table needs rebuilding either way.**
+
+---
+
+## Corrections made to the first draft of this document
+
+| Was | Corrected to |
+|---|---|
+| "Artwork mockups on your client's brand" as a standard deliverable | Artwork is voice-derived. Brand in the art is Custom Brand Output, from $1,500, no tier includes it, three weeks lead time. Fixed in live email 2 on 2026-08-01 before it sent to anyone. |
+| Pitch Kit pricing hand-built per opportunity | Partners self-serve it in the Activation Configurator, which already carries their name and their client's |
+| "150 activations per kiosk per 8-hour day", kiosk-days as the pricing unit | 150 activations per event day using two tablet stations. Kit and Crew packages: 1 day 150, 2 days 300, 3 days 500 |
+| Partner supplies equipment, crew and staffing | True only for self-run. Kit and Crew is a priced add-on where VoxMerch supplies both |
+| Report sample uses bracketed placeholders | Use the Beacon version; filled-in names read as a finished deliverable |
