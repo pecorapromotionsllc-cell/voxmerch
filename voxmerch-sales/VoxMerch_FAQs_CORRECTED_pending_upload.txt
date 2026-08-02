@@ -2,7 +2,7 @@
 
 This file answers the questions prospects ask before they buy. It is the reference for 1:1 sales conversations, follow-up emails, and proposals.
 
-All prices shown are client prices (the price the channel partner pays VoxMerch). VoxMerch sells through the channel only and never direct to brands. All activations are priced per event. Shareable sell sheets are referenced where they exist: VoxMerch Pricing Guide 2026, VoxMerch Kit & Crew Pricing 2026, VoxMerch Encore Pricing 2026, and the VoxMerch Activation Executive Summary sample report.
+All prices shown are resale prices: what the channel partner charges their brand client. Partner cost is 40% below the listed price, and partner cost is what the partner pays VoxMerch. Example: Essential lists at $3,500, the partner pays VoxMerch $2,100, and the partner keeps $1,400. VoxMerch sells through the channel only and never direct to brands. All activations are priced per event. Shareable sell sheets are referenced where they exist: VoxMerch Pricing Guide 2026, VoxMerch Kit & Crew Pricing 2026, VoxMerch Encore Pricing 2026, and the VoxMerch Activation Executive Summary sample report.
 
 ---
 
@@ -17,10 +17,10 @@ All prices shown are client prices (the price the channel partner pays VoxMerch)
 **Q: How much does it cost?**
 A: Pricing is fixed per event by tier. Add-ons are purchased a la carte and raise the total.
 
-- Essential: $3,500. Up to 150 activations. Additional activations $18 each.
-- Plus: $7,000. Up to 300 activations. Additional activations $16 each.
-- Advanced: $11,700. Up to 500 activations. Additional activations $14 each.
-- Enterprise: $17,500. Up to 750 activations. Additional activations $12 each.
+- Essential: $3,500 resale / $2,100 partner cost. Up to 150 activations. Additional activations $18 each.
+- Plus: $7,000 resale / $4,200 partner cost. Up to 300 activations. Additional activations $16 each.
+- Advanced: $11,700 resale / $7,020 partner cost. Up to 500 activations. Additional activations $14 each.
+- Enterprise: $17,500 resale / $10,500 partner cost. Up to 750 activations. Additional activations $12 each.
 
 The tier price is what you pay whether or not you use every activation included. Add-ons are the variable that drives the total higher.
 
@@ -116,7 +116,7 @@ For self-run events, connectivity and venue conditions are the client's responsi
 ### Pricing & Scope
 
 **Q: How much does it cost?**
-A: $2,500, flat, as an a la carte add-on. Included in the Advanced and Enterprise tiers at no additional cost.
+A: $2,500 resale / $1,500 partner cost, flat, as an a la carte add-on. Included in the Advanced and Enterprise tiers at no additional cost.
 
 **Q: What's included?**
 A: Two deliverables, both customized to the specific event's questions and responses:
@@ -402,7 +402,7 @@ A: Venue power, reliable Wi-Fi, tables, and signage. Everything else, equipment 
 A: No. VoxMerch sells through the channel only: promotional products and branded merchandise distributors, experiential agencies, and HALO AEs. The channel partner sets their own resale price to the brand.
 
 **Q: How do I price this to my client? Is everything marked at 40%?**
-A: VoxMerch pricing is VoxMerch pricing. In the branded merchandise space, the distributor decides their own markup to their client. The shareable sell sheets VoxMerch provides (the ones partners can hand to their brand clients) are built at the branded merchandise industry standard. Partners can adjust that however they choose; it is entirely up to them.
+A: Partner cost is fixed at 40% below the listed price. The listed price is the suggested resale, built at the branded merchandise industry standard, and it is what appears on the shareable sell sheets partners hand to their brand clients. Partners can raise or lower their own resale price however they choose; what they pay VoxMerch does not change. Note: Kit and Crew and The Encore may not follow the same 40% rule (Kit and Crew bills freight at actual cost and travel at cost plus 15%), so confirm the cost basis before quoting partner margin on those two.
 
 **Q: Can I license this annually instead of paying per event?**
 A: Yes. An ongoing or annual license is available, but it requires a separate conversation to understand the partner's business, needs, number of events planned, and contract duration.
