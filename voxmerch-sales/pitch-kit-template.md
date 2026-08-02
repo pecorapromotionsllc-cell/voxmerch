@@ -109,12 +109,20 @@ reflects this and needs no change.
 **The tier price is paid whether or not every activation is used.** A partner can buy Essential and
 run 50. The minimum is what you pay for, not what you must use.
 
-**A la carte add-ons:** Data Insights $2,500 · White Label $1,250 · SMS Service $850 · Custom Brand
-Output from $1,500 (scoped) · The Encore priced per item, credit-based, minimum 25 credits, US
-shipping only · Kit and Crew packaged per event.
+**A la carte add-ons follow the same 40% rule.** Confirmed for Data Insights on 2026-08-01, and
+$1,500 is exactly 40% below $2,500, so the pattern holds across the board.
 
-*Unconfirmed: whether add-on prices are also resale figures with partner cost 40% below, as the tiers
-are. Ask before quoting add-on margin to a partner.*
+| Add-on | Client pays the partner | Partner pays VoxMerch | Partner margin |
+|---|---|---|---|
+| Data Insights (the intelligence asset) | $2,500 | **$1,500** | $1,000 |
+| White Label | $1,250 | $750 | $500 |
+| SMS Service | $850 | $510 | $340 |
+| Custom Brand Output | from $1,500 | scoped | scoped |
+
+**Two exceptions, do not assume 40% on these.** Kit and Crew bills freight at actual carrier cost and
+travel at cost plus 15%, which is cost-plus rather than resale-with-margin. The Encore is credit-based
+per item with a 25-credit minimum. Confirm the cost basis on both before quoting partner margin.
+White Label and SMS figures above are derived from the 40% rule rather than separately confirmed.
 
 **Kit and Crew** is the on-site option, always an add-on: 1-day 1-lead regional $1,720 (150
 activations), 2-day 2-staff regional $4,670 (300, most popular), 3-day 3-staff regional $7,820 (500).
