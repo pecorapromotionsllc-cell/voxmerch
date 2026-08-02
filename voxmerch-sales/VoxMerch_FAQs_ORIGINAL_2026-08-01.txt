@@ -1,0 +1,451 @@
+# FAQs — Products & Services
+
+This file answers the questions prospects ask before they buy. It is the reference for 1:1 sales conversations, follow-up emails, and proposals.
+
+All prices shown are client prices (the price the channel partner pays VoxMerch). VoxMerch sells through the channel only and never direct to brands. All activations are priced per event. Shareable sell sheets are referenced where they exist: VoxMerch Pricing Guide 2026, VoxMerch Kit & Crew Pricing 2026, VoxMerch Encore Pricing 2026, and the VoxMerch Activation Executive Summary sample report.
+
+---
+
+## Activation Tiers
+
+**What is it?** The VoxMerch activation platform turns an attendee's voice into a personalized piece of artwork at a live event. The tiers are four ascending packages built on the same core technology, with more capability included at each level. Reference: VoxMerch Pricing Guide 2026.
+
+**Who's it for?** Any brand running any event where they want a memorable, interactive booth experience that also captures attendee data. Trade show booths, employee events, festivals, conferences, and more. Sold to the channel: promotional products and branded merchandise distributors, experiential agencies, and HALO AEs.
+
+### Pricing & Scope
+
+**Q: How much does it cost?**
+A: Pricing is fixed per event by tier. Add-ons are purchased a la carte and raise the total.
+
+- Essential: $3,500. Up to 150 activations. Additional activations $18 each.
+- Plus: $7,000. Up to 300 activations. Additional activations $16 each.
+- Advanced: $11,700. Up to 500 activations. Additional activations $14 each.
+- Enterprise: $17,500. Up to 750 activations. Additional activations $12 each.
+
+The tier price is what you pay whether or not you use every activation included. Add-ons are the variable that drives the total higher.
+
+**Q: What's included?**
+A: Every tier includes the voice-to-artwork platform (the core technology) and live artwork display on the tablet. Each step up adds more:
+
+- Essential: voice-to-artwork platform + live artwork display.
+- Plus: the above + SMS artwork delivery.
+- Advanced: the above + SMS artwork delivery + Data Insights report.
+- Enterprise: all of the above + full White Label.
+
+Where the service models fit: technology licensing is the platform on its own (Essential with no add-ons). Onsite print and pickup is the Kit and Crew add-on. Drop-ship to attendees is The Encore add-on.
+
+**Q: What's NOT included?**
+A: Anything not listed as included for that tier. The most common wrong assumption is that something baked into a higher tier comes standard at a lower one. To be explicit:
+
+- SMS artwork delivery is not included at Essential.
+- The Data Insights report is not included at Essential or Plus.
+- White Label is not included at any tier below Enterprise.
+- No tier includes onsite staffing or equipment (that is Kit and Crew), drop-shipped merchandise (that is The Encore), or full customization of the generated artwork to the brand (that is Custom Brand Output).
+- Self-run events run on the client's own equipment. No hardware is provided unless Kit and Crew is purchased.
+
+Because the higher tiers bake in add-ons, an Advanced or Enterprise buyer already has the matching capabilities and would not purchase those add-ons separately. Plus already includes SMS. Advanced already includes SMS and Data Insights. Enterprise already includes SMS, Data Insights, and White Label.
+
+### Timeline & Delivery
+
+**Q: How long does it take?**
+A: Event duration varies by the client's needs, typically one to three days. A package can be run over a longer window if the client chooses. Events are not kept open indefinitely.
+
+Two timing notes:
+- If the Data Insights report is purchased, it is delivered after the event closes, not live.
+- If running onsite with Kit and Crew, the package is tied to hours per day, number of kiosk or tablet stations, and travel scope.
+
+**Q: What does the lead-up look like?**
+A: Booking and setup are self-serve through the VoxMerch client portal, which every channel buyer gets access to. The portal is where they select the tier, choose add-ons, set branding, and enter all event details. Payment also happens in the portal, on net terms or by credit card.
+
+- A training video walks the buyer through the portal, with detailed step-by-step documentation built in for every part of setup.
+- Once onboarded, the buyer moves to the Events and Customer Success teams for any additional needs, including arranging Kit and Crew.
+- A test mode lets the buyer preview the kiosk with their branding applied.
+- There is no formal minimum lead time, but everything should be entered a few days before the event at the latest.
+
+The buyer is responsible for setting up their event in the portal and for payment. VoxMerch handles all customer questions and, when purchased, the planning and execution of Kit and Crew.
+
+**Q: What does delivery look like?**
+A: The live attendee flow is the same across every tier:
+
+1. The attendee walks up to the booth and is greeted by someone working the kiosk.
+2. They tap a button, enter the required information, and a list of questions appears.
+3. They select one question, hit start, and record their answer using a wireless mic, up to 30 seconds.
+4. The artwork renders during roughly a 40-second window. This is the critical moment: a real one-on-one connection while the booth staffer engages the attendee on the brand and the event and answers questions.
+5. The finished artwork appears.
+
+How the attendee receives it depends on configuration:
+- Print (default): the artwork sends automatically to the printer, prints, and is handed over.
+- SMS delivery (Plus and up, or SMS Service add-on at Essential): the attendee taps a button to receive a link on their phone within seconds, where they can save the artwork as wallpaper or download it. SMS can run alongside print or replace it.
+- The Encore (drop-ship): the attendee selects the brand's chosen giveaway item, enters shipping information, and the product ships within three to five days.
+
+Onsite vs. self-run: with Kit and Crew, VoxMerch staff are on site, set everything up, run the entire activation on behalf of the client, then break it down and ship it back out. Without it, the buyer runs the activation on their own equipment.
+
+Buyers are on site throughout. When HALO is running the activation, leads and attendee questions are handed off to the brand's booth representatives.
+
+**Q: What happens when it's done?**
+A: Customer Success sends a post-event survey and answers any remaining questions. If Data Insights was purchased, the full report is delivered up to three days after the event closes. For Kit and Crew, nothing is required on the buyer's side; closeout is automated.
+
+Customer Success runs recaps and check-ins. The model is built for repeatable events, so the buyer keeps their portal login and can set up future events themselves without going through VoxMerch. Tier upgrade rates live in the portal. Data Insights is the consistent next step we recommend, because it is what makes the event pay off for the client.
+
+There is no formal ongoing support program. For questions, Customer Success is the channel, and the buyer can call Business Operations or the VoxMerch team directly anytime.
+
+### Fit & Expectations
+
+**Q: Is this right for me if my clients don't run big events?**
+A: Yes. This is not only for large events. A buyer can purchase the base package (150 activations) and use only a fraction of it, even 50, entirely up to them and their client. The minimum is what you pay for, not what you must use. It fits virtually any brand and almost any event type: trade show booths, employee events, festivals, conferences, and more.
+
+**Q: What do I need to bring to make this work?**
+A: For self-run events, per 150 attendees (over one to two days, depending on event hours): two tablets, two stands, one printer, and two wireless mics. Plus reliable internet and Wi-Fi at the booth, with a signal booster recommended on site. A technology-only setup needs only a small footprint for the stand and tablet.
+
+In advance:
+- The question set must be entered when the event is built in the portal. This is required.
+- Branding assets are loaded in the portal, with test mode to preview.
+- For The Encore, nothing is required from the client during the event; items go to production automatically once the event closes.
+- Recommended, not required: if the buyer has access to their client's attendee list, send a pre-event email building anticipation and driving booth traffic.
+
+For self-run events, connectivity and venue conditions are the client's responsibility to coordinate with their own brand client. With Kit and Crew, VoxMerch handles connectivity and venue setup alongside the client, but the client still owns communicating those needs to their brand client to ensure a smooth setup.
+
+---
+
+## Data Insights
+
+**What is it?** A fully customized post-event market intelligence report built from attendee voice responses, plus a companion data spreadsheet. Reference: VoxMerch Activation Executive Summary sample report.
+
+**Who's it for?** Any brand that wants to turn an activation into segmented, contact-level follow-up rather than a generic event recap. Baked into Advanced and Enterprise; available a la carte at Essential and Plus.
+
+### Pricing & Scope
+
+**Q: How much does it cost?**
+A: $2,500, flat, as an a la carte add-on. Included in the Advanced and Enterprise tiers at no additional cost.
+
+**Q: What's included?**
+A: Two deliverables, both customized to the specific event's questions and responses:
+
+- The Activation Executive Summary (PDF). A voice-driven market intelligence report covering captured engagements and unique contacts, business-domain response rate, average response depth, lead-quality tiers (priority follow-up, qualified nurture, insight-rich, low-context), engagement by prompt, dominant market themes ranked by mention frequency, verbatim attendee quotes by theme, top respondents ranked for follow-up, an industry benchmark comparison, and segmented follow-up recommendations.
+- A companion spreadsheet with the raw attendee data: name, email, the question selected, and the full transcribed response for each engagement.
+
+The report includes contact-level first-party data the brand can use for segmented follow-up.
+
+**Q: What's NOT included?**
+A: The report does not capture or assert title, seniority, company size, buying authority, budget, or meeting status. The report itself flags firmographic enrichment as the client's recommended next step. Audio recordings are destroyed three days after the event ends.
+
+### Timeline & Delivery
+
+**Q: How long does it take?**
+A: Delivered after the event closes, up to three days post-event. It is not available live during the event.
+
+**Q: What does the lead-up look like?**
+A: Selected in the portal as an add-on when the event is built. No separate setup conversation required.
+
+**Q: What does delivery look like?**
+A: After the event closes, VoxMerch analyzes the captured voice responses and produces the customized Executive Summary and data spreadsheet, delivered within three days.
+
+**Q: What happens when it's done?**
+A: This is the asset that powers the client's post-event outreach. It is the consistent upsell for buyers who did not include it, because it is what converts an activation into measurable pipeline.
+
+### Fit & Expectations
+
+**Q: Is this right for me if my client just wants the booth experience?**
+A: It is the single highest-value add for any client who cares about lead follow-up. The activation itself drives engagement; Data Insights is what lets the brand act on it. If a client is investing in a booth presence at all, this is what makes the spend pay back.
+
+**Q: What do I need to bring to make this work?**
+A: Nothing beyond a well-chosen question set, which is entered in the portal at setup. The quality of the report tracks the quality of the questions, so choosing prompts that surface real market opinion is worth the thought.
+
+---
+
+## White Label
+
+**What is it?** Branding of the full attendee-facing kiosk experience and artwork output in the client's colors and logo. Reference: VoxMerch Pricing Guide 2026.
+
+**Who's it for?** Channel partners or brands who want the experience to carry their own identity rather than VoxMerch's. Baked into Enterprise; available a la carte at lower tiers.
+
+### Pricing & Scope
+
+**Q: How much does it cost?**
+A: $1,250, flat, as an a la carte add-on. Included in the Enterprise tier at no additional cost.
+
+**Q: What's included?**
+A: Branding of the full attendee-facing flow, from the opening question screen, through answering, to the final artwork output screen. Includes a primary and a secondary brand color. A logo placement on the artwork piece is offered free, with the location selectable in the portal. The branding can be the channel partner's own brand or their brand client's, whichever the buyer chooses and pays for.
+
+**Q: What's NOT included?**
+A: The kiosk's default/idle screen currently shows the VoxMerch logo. Whether that screen is rebranded under White Label is being evaluated, so it should not be promised as rebranded today. Without White Label, the kiosk and output carry VoxMerch branding throughout.
+
+### Timeline & Delivery
+
+**Q: How long does it take?**
+A: Configured in the portal at event setup. No added lead time.
+
+**Q: What does the lead-up look like?**
+A: The buyer selects the add-on and sets the colors and logo placement in the portal, with test mode to preview the branded kiosk before the event.
+
+**Q: What does delivery look like?**
+A: The attendee sees the client's branding across the kiosk screens and on the artwork piece throughout the activation.
+
+**Q: What happens when it's done?**
+A: No separate offboarding. White Label applies to that event's configuration.
+
+### Fit & Expectations
+
+**Q: Is this right for me if I want to sell this as my own offering?**
+A: Yes. White Label is how a channel partner presents the activation under their own brand rather than VoxMerch's. The buyer decides whose brand appears.
+
+**Q: What do I need to bring to make this work?**
+A: A primary and secondary brand color and a logo file, entered in the portal at setup.
+
+---
+
+## SMS Service
+
+**What is it?** Instant delivery of the finished artwork to the attendee's phone by text link. Reference: VoxMerch Pricing Guide 2026.
+
+**Who's it for?** Any event that wants attendees to keep their artwork digitally, with or without a printed piece. Baked into Plus, Advanced, and Enterprise; available a la carte at Essential.
+
+### Pricing & Scope
+
+**Q: How much does it cost?**
+A: $850, flat, as an a la carte add-on. Included in the Plus, Advanced, and Enterprise tiers at no additional cost.
+
+**Q: What's included?**
+A: Once the artwork appears on the kiosk, a button lets the attendee tap to receive a link on their phone within seconds, where they can save the artwork as wallpaper or download it. SMS can run alongside the printed piece or replace it entirely; it can run with no print at all. Either configuration is paid for the same.
+
+**Q: What's NOT included?**
+A: The text message carries no custom branding or message. It states that the recipient has received a link from VoxMerch, and that must stay that way: VoxMerch holds the license and FTC approval to send it. This is a hard constraint and does not change even with White Label purchased. The SMS sender identity remains VoxMerch.
+
+### Timeline & Delivery
+
+**Q: How long does it take?**
+A: Instant. The link arrives on the attendee's phone within seconds of tapping the button at the kiosk.
+
+**Q: What does the lead-up look like?**
+A: Selected in the portal as an add-on at Essential, or already included at Plus and above. When SMS is active, attendees must check an SMS opt-in and consent box at the kiosk when they enter their information. This is required by the FTC as part of VoxMerch's certification to run the service.
+
+**Q: What does delivery look like?**
+A: After the artwork renders, the attendee taps the delivery button and receives the link by text, then opens it to save or download the piece.
+
+**Q: What happens when it's done?**
+A: The attendee keeps the link and the artwork. No separate offboarding.
+
+### Fit & Expectations
+
+**Q: Is this right for me if we're already printing the piece?**
+A: Yes. Many events run both, the printed piece for the in-booth reveal and the text link so the attendee keeps a digital copy. It can also replace print entirely for a lighter-footprint setup.
+
+**Q: What do I need to bring to make this work?**
+A: Nothing beyond the standard setup. The opt-in checkbox is built into the kiosk flow.
+
+---
+
+## Custom Brand Output
+
+**What is it?** Customization of the generated artwork itself to the brand, beyond interface branding. Reference: VoxMerch Pricing Guide 2026 (listed as "Contact your rep").
+
+**Who's it for?** Brands that want the actual art each attendee receives to reflect their colors, marks, or a thematic concept. Not included in any tier; a la carte only.
+
+### Pricing & Scope
+
+**Q: How much does it cost?**
+A: $1,500 is the starting point. Final pricing depends on a scoping conversation about how extensive the customization is, since every custom output is different. Listed on the sell sheet as "Contact your rep."
+
+**Q: What's included?**
+A: This changes the generated artwork, not just the interface. The art is still generated from the colors and characteristics of the attendee's voice, and on top of that VoxMerch can render it in the brand's colors only, inject brand elements such as logos into the artwork, or set thematic parameters tied to a location or concept. (Example: a Hawaii event could infuse Hawaiian aesthetic characteristics into every piece.)
+
+How it differs from White Label: White Label brands the interface and frame (kiosk screens, colors, logo placement on the piece). Custom Brand Output changes what the artwork itself looks like.
+
+**Q: What's NOT included?**
+A: Scope is defined per engagement in the scoping conversation. It is not a self-serve option and cannot be selected in the portal.
+
+### Timeline & Delivery
+
+**Q: How long does it take?**
+A: Plan for about three weeks of lead time before the event, because it requires custom creative work on the VoxMerch side.
+
+**Q: What does the lead-up look like?**
+A: A conversation and agreement ahead of time. The buyer and VoxMerch scope the customization, then VoxMerch builds it before the event.
+
+**Q: What does delivery look like?**
+A: At the event, every generated piece reflects the agreed customization while still being driven by each attendee's voice.
+
+**Q: What happens when it's done?**
+A: No separate offboarding beyond the standard post-event flow.
+
+### Fit & Expectations
+
+**Q: Is this right for me if my client is particular about brand consistency?**
+A: Yes. This is the option for a brand that needs the output to look unmistakably theirs, not just framed in their colors. Bring it up early because of the three-week lead time.
+
+**Q: What do I need to bring to make this work?**
+A: Brand assets and a clear sense of the look the client wants, discussed in the scoping conversation. The more specific, the better the result.
+
+---
+
+## The Encore
+
+**What is it?** A drop-ship program that prints each attendee's own voice-generated artwork on branded merchandise after the event and ships it to their door. References: VoxMerch Encore Pricing 2026, VoxMerch Pricing Guide 2026.
+
+**Who's it for?** Any brand that wants attendees to leave with more than a giveaway: a one-of-a-kind, personalized piece delivered after the event. Not included in any tier; a la carte only.
+
+### Pricing & Scope
+
+**Q: How much does it cost?**
+A: Priced per item, credit-based, one credit per piece, with shipping within the United States included. No inventory to manage. Credits are purchased in advance, with a minimum of 25 credits. Per-item client prices:
+
+Standard (Everyday Essentials):
+- Unisex Softstyle T-Shirt, S/M/L/XL: $29; 2XL: $32; 3XL: $34; 4XL: $37
+- Accent Coffee Mug, 11oz: $27; 15oz: $35
+- Spiral Notebook, ruled: $29
+
+Plus (Elevated Keepsakes):
+- Tumbler, 20oz: $55
+- Tote Bag (all-over print), 13x13: $37; 16x16: $42; 18x18: $45
+- Fine Art Poster, 11x17: $49
+
+Premium (Gallery-Worthy Art):
+- Fine Art Poster, 18x24: $64
+- Matte Canvas, stretched 8x10: $42
+- Matte Canvas, framed 8x10: $69
+
+The Standard / Plus / Premium tiers are a good-better-best presentation, not pricing bands.
+
+**Q: What's included?**
+A: Each item is printed with the attendee's own voice-generated artwork; there is no standard pre-branding. Every shipment also includes, free, a personalized 6x4 insert card branded to the event, reminding the attendee when and where their piece was created. Shipping within the United States is included in the per-item price.
+
+**Q: What's NOT included?**
+A: International shipping is not available yet; it is planned for the future. Items ship within three to five days of going to production.
+
+### Timeline & Delivery
+
+**Q: How long does it take?**
+A: Items go to production automatically once the event closes and ship within three to five days.
+
+**Q: What does the lead-up look like?**
+A: Self-serve in the portal. The buyer adds The Encore and selects which item or items to offer. Nothing is required from the client during the event itself.
+
+**Q: What does delivery look like?**
+A: At the kiosk, after the artwork renders, the attendee selects their item (or chooses among items the brand offered), enters their shipping information, and the personalized piece ships to their home.
+
+**Q: What happens when it's done?**
+A: Fulfillment runs automatically after the event. No closeout work for the buyer.
+
+### Fit & Expectations
+
+**Q: Is this right for me if my client wants a takeaway that lasts?**
+A: Yes. The Encore is the option for a memorable, personalized takeaway delivered after the event, with no inventory to manage. Credits are bought in advance starting at a minimum of 25.
+
+**Q: What do I need to bring to make this work?**
+A: The item selection, set in the portal. The artwork comes from each attendee's voice at the event.
+
+---
+
+## Kit and Crew
+
+**What is it?** Full onsite service. VoxMerch supplies a trained crew and a complete equipment kit, and runs the activation end-to-end. Reference: VoxMerch Kit & Crew Pricing 2026.
+
+**Who's it for?** Buyers who want a turnkey activation without supplying equipment or staffing it themselves. Always sold as an add-on to a platform tier; not included in any tier.
+
+### Pricing & Scope
+
+**Q: How much does it cost?**
+A: Packaged per event, and every event still goes through a scoping conversation with the Events and Customer Success teams to price it accurately for the actual days, hours, and headcount. The pricing sheet is a reference point:
+
+Staffed packages:
+- 1-Day / 1 Lead, Regional (up to 8 hrs, 2 tablet stations, no hotel): $1,720 — 150 activations
+- 1-Day / 1 Lead, Travel (flight or hotel): $2,120 floor price — 150 activations
+- 1-Day / 2 Staff, Regional (1 lead + 1 coordinator, up to 8 hrs): $2,100 — 150 activations
+- 2-Day / 2 Staff, Regional (up to 16 hrs, setup + activation day): $4,670 — 300 activations (most popular)
+- 3-Day / 2 Staff, Regional (2 coordinators, up to 24 hrs): $6,620 — 500 activations
+- 3-Day / 3 Staff, Regional (2 coordinators + 1 event manager, up to 24 hrs): $7,820 — 500 activations
+
+Overages and add-ons:
+- Additional event day, Event Coordinator (regional): $380
+- Additional event day, Event Manager / Lead (regional): $500
+- Additional kiosk (3rd tablet + stand): $400, plus shipping
+
+Pricing is driven by hours per day, number of kiosk/tablet stations, and travel scope (local, regional, or fly-to).
+
+**Q: What's included?**
+A: A trained crew, full equipment kit, and end-to-end execution. Specifically: 2 tablets, 2 kiosk stands, 1 printer, and 2 wireless audio sets; pre-event tech prep, portal configuration, and equipment inspection; onsite setup, activation operation, and strike; trained VoxMerch staffing; platform support during the activation window; and print media and ink consumables for the activation tier. The client's team does not touch a thing. Staffing scales by package, from a single lead up to two coordinators plus an event manager for high-traffic floors.
+
+**Q: What's NOT included?**
+A: Quoted or billed separately:
+- Freight / shipping, billed at actual carrier cost post-event
+- Travel costs (airfare, hotel, per diem), billed at cost plus 15% logistics handling
+- Platform licensing, quoted separately by tier
+- Venue power, Wi-Fi, tables, and signage, which are client-provided
+
+### Timeline & Delivery
+
+**Q: How long does it take?**
+A: Packages run from a single day up to three days, tied to the hours, stations, and travel scope agreed in the quote.
+
+**Q: What does the lead-up look like?**
+A: Arranged through the Events and Customer Success teams, not self-serve in the portal. After a scoping conversation, VoxMerch handles pre-event tech prep, portal configuration, and equipment inspection, then plans the onsite execution.
+
+**Q: What does delivery look like?**
+A: VoxMerch crew arrive on site, set everything up, run the entire activation on behalf of the client, then break it all down and ship the equipment back out.
+
+**Q: What happens when it's done?**
+A: Closeout is automated; nothing is required on the buyer's side. Freight and any travel are reconciled and billed at actual cost after the event.
+
+### Fit & Expectations
+
+**Q: Is this right for me if I don't want to run the booth myself?**
+A: Yes. Kit and Crew is the turnkey option. The client supplies the venue essentials (power, Wi-Fi, tables, signage); VoxMerch brings and runs everything else.
+
+**Q: What do I need to bring to make this work?**
+A: Venue power, reliable Wi-Fi, tables, and signage. Everything else, equipment and staffing, is provided. The client still owns communicating venue and connectivity needs to their own brand client so setup goes smoothly.
+
+---
+
+## General FAQs
+
+**Q: Do you sell directly to brands?**
+A: No. VoxMerch sells through the channel only: promotional products and branded merchandise distributors, experiential agencies, and HALO AEs. The channel partner sets their own resale price to the brand.
+
+**Q: How do I price this to my client? Is everything marked at 40%?**
+A: VoxMerch pricing is VoxMerch pricing. In the branded merchandise space, the distributor decides their own markup to their client. The shareable sell sheets VoxMerch provides (the ones partners can hand to their brand clients) are built at the branded merchandise industry standard. Partners can adjust that however they choose; it is entirely up to them.
+
+**Q: Can I license this annually instead of paying per event?**
+A: Yes. An ongoing or annual license is available, but it requires a separate conversation to understand the partner's business, needs, number of events planned, and contract duration.
+
+**Q: Do you rent equipment?**
+A: No. VoxMerch does not rent equipment. For self-run events the client supplies the hardware; for fully staffed events the equipment comes as part of Kit and Crew.
+
+**Q: I'm having a hard time picturing how this actually works. Can you walk me through it?**
+A: This is the most common reaction, because it is genuinely new and not a known category like an AI photo booth. The flow: an attendee walks up to the booth, picks a question, and records a short spoken answer (up to 30 seconds) into a wireless mic. Over about 40 seconds, the platform turns their voice into a unique piece of artwork while a staffer engages them on the brand. The finished piece is printed on the spot, texted to their phone, or printed on merchandise and shipped to their home, depending on the package. The brand walks away with both a memorable experience and the attendees' responses as usable data.
+
+**Q: Is this only for big events?**
+A: No. A buyer can purchase the base package (150 activations) and use only a fraction of it. The minimum is what you pay for, not what you must use. It works for trade show booths, employee events, festivals, conferences, and almost any event type, at almost any size.
+
+**Q: Have you actually run this before?**
+A: Yes. The platform has been tested multiple times at large-scale events, including for a Fortune 4 company.
+
+**Q: Is there anything cheaper that does the same thing?**
+A: To our knowledge, no other event activation does what VoxMerch does. It is competitively priced, and in some cases lower than other large-scale event activations on the market.
+
+**Q: Does the artwork always come out as a rectangle?**
+A: No. The standard size is 8x10, and it can also be produced at 5x7.
+
+**Q: How many attendees should my client plan for?**
+A: The paid minimum is 150 activations, though an event can run fewer if the client wants. There is no requirement to use every activation purchased.
+
+**Q: Can The Encore ship internationally?**
+A: Not yet. Encore shipping is within the United States today; international fulfillment is planned for the future.
+
+**Q: What consent do attendees give?**
+A: A voice-recording consent checkbox is required on every activation, at every tier. It includes a clear statement that the recording is not used for biometric or any similar purposes. When SMS Service is active, attendees must also check a separate SMS opt-in and consent box, which is required by the FTC as part of VoxMerch's certification to run the SMS service.
+
+**Q: What happens to the voice recordings after the event?**
+A: Audio recordings are destroyed three days after the event ends.
+
+---
+
+## Post-Signing Questions
+
+Note: VoxMerch is pre-launch, so this section is seeded with items that are confirmed and worth raising before a client's first event. Update it with real questions as portal and event activity builds.
+
+- The question set must be entered when the event is built in the portal. Lock it early; the quality of the experience and any Data Insights report depends on it.
+- The Data Insights report is delivered after the event closes (up to three days post-event), not live during the event.
+- Self-run events require specific equipment (two tablets, two stands, one printer, two wireless mics per 150 attendees) and reliable Wi-Fi, with a booster recommended.
+- For Kit and Crew, freight is billed at actual carrier cost after the event and travel is billed at cost plus 15%. Budget for both beyond the package price.
+- The Encore does not ship internationally yet.
+
