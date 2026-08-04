@@ -407,7 +407,7 @@
     <p class="lede">One page, six gates. Each gate tells you something different when it stalls, so the number that
       matters is always the first one that is red. Everything below is read from Apollo and Monday.</p>
     <div class="meta-row">
-      <span>Snapshot <b>4 Aug 2026, 10:40am CT</b></span>
+      <span>Snapshot <b>4 Aug 2026, 4:05pm CT</b></span>
       <span>Day <b>5</b> of 93</span>
       <span>First revenue target <b>1 Oct</b></span>
     </div>
@@ -452,7 +452,7 @@
           <h3>Sends actually leaving the building</h3>
           <p class="rung-diag">The old campaign died here: <b>35 emails in its entire life</b> against a 1,550/day
             ceiling, because two approval gates required a founder who was busy closing to also be the send button.
-            Both gates are gone. If this number stops moving, nothing else on this page means anything. <b>Throughput is fine.</b> An earlier read of this dashboard warned that sending was capped near 7/day and might need a second mailbox. That was wrong: Apollo's delivered counter lags by hours. All 25 went out within about 27 hours, confirmed one by one in the Sent Items folder. No second mailbox needed. <b>Email 2 is sending.</b> It started 4 Aug at 10:02am CT and paces about ten minutes apart, the same cadence email 1 ran at. <b>The three-day gap counts business days.</b> Thursday 30 July plus three business days is Friday, Monday, Tuesday, so the Thursday cohort came due 4 Aug and the Friday cohort comes due 5 Aug. Nothing was ever broken. Two earlier readings of this dashboard called email 2 overdue and then confirmed-broken, and both were wrong: the 3 Aug check assumed calendar days, and the 4 Aug 10am check ran minutes before the first send and mistook an open send window for a missed one. Apollo does not flush a step when the window opens, it paces across the day, so absence early in the morning means nothing. A per-step <code>max_emails_per_day</code> value set on step 1 but absent on steps 2 and 3 looked like the cause and was not: step 2 sends fine without it.</p>
+            Both gates are gone. If this number stops moving, nothing else on this page means anything. <b>Throughput is fine.</b> An earlier read of this dashboard warned that sending was capped near 7/day and might need a second mailbox. That was wrong: Apollo's delivered counter lags by hours. All 25 went out within about 27 hours, confirmed one by one in the Sent Items folder. No second mailbox needed. <b>Email 2 works, confirmed by cohort.</b> The 30 July cohort was exactly four people, and all four received email 2 on 4 Aug between 10:02 and 10:33am CT. Same four addresses, four of four, complete. The other 21 received email 1 on Friday 31 July, so they come due Wednesday 5 Aug. <b>The three-day gap counts business days:</b> Thursday plus three business days is Friday, Monday, Tuesday. Two earlier readings of this dashboard were wrong and are worth recording so the mistake is not repeated. The 3 Aug check assumed calendar days. The 4 Aug 10am check ran minutes before the first send, then read an open send window with no sends as proof of failure and reached a confident wrong diagnosis. Apollo does not flush a step when the window opens, it paces roughly ten minutes apart across the day, so an empty Sent Items in the morning means nothing. A per-step <code>max_emails_per_day</code> set on step 1 but absent on steps 2 and 3 looked like the cause and was not: step 2 sends fine without it. No sequence edit was made.</p>
         </div>
         <div class="rung-right">
           <span class="rung-val">25</span>
@@ -562,7 +562,7 @@
         <div class="row"><span class="row-k">Batch 1 sent in full</span><span class="row-v">~27 hrs</span></div>
         <div class="row"><span class="row-k">Auto-replies to triage</span><span class="row-v">0</span></div>
         <div class="row"><span class="row-k">Last send</span><span class="row-v">4 Aug, 10:33am</span></div>
-        <div class="row"><span class="row-k">Email 2 delivered</span><span class="row-v">4 of 25</span></div>
+        <div class="row"><span class="row-k">Email 2, cohort due</span><span class="row-v">4 of 4</span></div>
       </div>
     </section>
 
