@@ -8,7 +8,7 @@
 
 **Curation counts:** 600 rows fetched, approximately 569 unique people after de-duplication across the two searches. Initially kept 250 people across 178 companies; **11 rows were then held back after a cross-check against the old Sales Development Pipeline board, leaving 239 people across 173 companies ready to enroll.** Dropped at curation: approximately 319. Note: the company count runs above the original 80-100 estimate because most qualifying firms surfaced only 1-2 matching titles; the 3-per-company cap was applied wherever more appeared.
 
-**Enrollment status:** approved by Mary Anne 2026-07-30. **Batch 1 of 25 is enrolled and sending** (see the Batch 1 section at the end of this file). The remaining 214 are researched but not created in Apollo and not enrolled.
+**Enrollment status:** approved by Mary Anne 2026-07-30. **Batch 1 of 25 is enrolled and sending.** **Batch 2 of 48 is staged in Apollo and Monday as of 2026-08-04 but not enrolled, so no batch 2 email has been sent.** See the Batch 1 and Batch 2 sections at the end of this file. The remaining 98 are researched but not created in Apollo and not enrolled.
 
 ## Segment: Agency
 
@@ -381,3 +381,121 @@ Kristen Wickett's address, the one catchall domain in the batch.
 
 **Remaining in tranche 1 and not yet enrolled: 214 people.** Batch 2 goes out only after this
 batch's deliverability and reply handling look clean.
+
+**Update 2026-08-04:** the deliverability half of that gate is clean, so batch 2 was built and staged.
+Reply handling is still unproven because no prospect has replied yet, which is a gap in the gate rather
+than a pass. See the Batch 2 section below.
+
+---
+
+## Batch 2 STAGED IN APOLLO, ENROLLMENT NOT YET EXECUTED (2026-08-04)
+
+Batch 1's gate cleared before this batch was built: 26 delivered, 0 bounced, 0 spam blocked,
+0 unsubscribed, and the sequence reading `active: true`. Email 2 was confirmed sending on 4 Aug
+across the full due cohort. That is what unlocked batch 2.
+
+**Where this batch actually stands.** 50 people enriched, 49 returned a verified email, 48 created
+as Apollo contacts, 48 added to Monday board 18409325257 in "Queued for Outreach" at stage Queued.
+**Nobody is enrolled and no email has been sent.** The enrollment call to sequence
+`6a6ab19632f101001070b98d` was blocked by the session's permission gate, so the batch is staged and
+waiting on a decision. Apollo list labels applied at creation: "Event Activation" and
+"Tranche 1 Batch 2 - Aug 2026".
+
+**Selection rule, same as batch 1: one person per company.** 48 contacts across 48 distinct
+companies, no company overlapping batch 1, nobody from the 11-person held-back list, nobody from the
+four off-limits Monday groups.
+
+**Send velocity, when enrollment does run.** The outbound plan puts week two at roughly 40/day and
+warns that a sudden jump is the one thing that still triggers classification independently of content
+or reputation. 48 in a single window would be nearly double the largest day so far. The staged plan is
+to split it: 24 active, and the other 24 added `paused` with `auto_unpause_at` on the next business
+morning. Batch 1's step 2 and step 3 sends land in the same windows and draw on the same mailbox, so
+the real daily total runs above the new-contact count.
+
+| Name | Title | Company | Apollo contact id | Send day |
+|---|---|---|---|---|
+| Rachel Lane | Director of Experiential Marketing | Podium Marketing | 6a7275176e85c6001042fdfb | 1 |
+| Lyssa Wheaton | Director of Experiential Marketing | Alliance Connection | 6a7275176e85c6001042fdfc | 1 |
+| Ryan Herrmann | Vice President of Client Services | VMG (Valeureux) | 6a7275176e85c6001042fdfd | 1 |
+| Suzie Omley | Director of Client Services | Sweet&Chilli | 6a7275176e85c6001042fdfe | 1 |
+| Kendra Ninaltowski | Vice President of Client Services | Newbridge Marketing | 6a7275176e85c6001042fdff | 1 |
+| Monica Mayzer | Vice President, Client Services | AMCI Global | 6a7275176e85c6001042fe00 | 1 |
+| Karen Ingram | Director - Experiential Marketing and Production | Tara Wilson Agency | 6a7275176e85c6001042fe01 | 1 |
+| Billy Freeman | Senior Director of Client Services | RedPeg Marketing | 6a7275176e85c6001042fe02 | 1 |
+| Stephen Danylyshyn | Director of Client Services | sbExperiential | 6a7275176e85c6001042fe03 | 1 |
+| Lauren Siedor | Vice President, Client Services | The MRL Group | 6a7275176e85c6001042fe04 | 1 |
+| Chip Carman | Director of Client Services | Brandgage | 6a7275176e85c6001042fe05 | 1 |
+| Rebecca Mruzik | Director of Client Services | Evntiv | 6a7275176e85c6001042fe06 | 1 |
+| Felicia Kuschel | Vice President Client Services | Group 7even | 6a7275176e85c6001042fe07 | 1 |
+| Morgan Connacher | Vice President, Events & Special Programs | Brand Revolution | 6a7275176e85c6001042fe08 | 1 |
+| Fara Diaz | Group Account Director, Client Services | Loud And Live | 6a7275176e85c6001042fe09 | 1 |
+| Josh Kitts | Senior Director, Client Services | MATTE Projects | 6a7275176e85c6001042fe0a | 1 |
+| Pat Giani | Account Director | GLGR | 6a7275176e85c6001042fe0b | 1 |
+| Drew Beck | EVP, Client Services | PHOENIX Lifestyle Marketing Group | 6a7275176e85c6001042fe0c | 1 |
+| Claire Poelwijk | Account Director | For Good & Company | 6a7275176e85c6001042fe0d | 1 |
+| Elise Danner | Account Director | Vega Group | 6a7275186e85c6001042fe0e | 1 |
+| Neale Rebman | Director, Events & Entertainment | CPG Agency | 6a7275186e85c6001042fe0f | 1 |
+| Nicki Chacon | Senior Vice President, Client Services and Organizational Effectiveness | CIVIC | 6a7275186e85c6001042fe10 | 1 |
+| Jim Notarianni | Director, Client Services, Culture and Education | MRA mobile experiential | 6a7275186e85c6001042fe11 | 1 |
+| Carrie Piscotty | Account Director | Wilson Dow Group | 6a7275186e85c6001042fe12 | 1 |
+| Tad Smith | VP, Client Services | DriveShopUSA | 6a7275186e85c6001042fe13 | 2 |
+| Katie Howard | Account Director | Ten Feet Tall | 6a7275186e85c6001042fe14 | 2 |
+| Mary O'Neal | Account Director | COACT AGENCY | 6a7275186e85c6001042fe15 | 2 |
+| Erica Egwuagu | Account Director | We Are Alexander | 6a7275186e85c6001042fe16 | 2 |
+| Michael Junne | Account Director | Creative Riff | 6a7275186e85c6001042fe17 | 2 |
+| Taylor Moran | Account Director | SSG/Brandintense | 6a7275186e85c6001042fe18 | 2 |
+| Clarke Colon | AVP, Events | Fuse | 6a7275186e85c6001042fe19 | 2 |
+| Dayna Simms | Vice President of Client Services | myWHY Agency | 6a7275186e85c6001042fe1a | 2 |
+| Tiffany Hoang | Account Director | Ayatana XP | 6a7275186e85c6001042fe1b | 2 |
+| Alexis Murphy | Account Director | Corso Marketing Group | 6a7275186e85c6001042fe1c | 2 |
+| Kim Stewart | Sr. Director of Client Accounts & Programs | SHW | 6a7275186e85c6001042fe1d | 2 |
+| Stephanie Brogan | Account Director | Track Marketing Group | 6a7275186e85c6001042fe1e | 2 |
+| Kayla Taheri | Director of Events | VIPER | 6a7275186e85c6001042fe1f | 2 |
+| Jonathan Anderson | Account Director | X-FCTR | 6a7275186e85c6001042fe20 | 2 |
+| Amanda Hamner | Account Director | MOMT | 6a7275186e85c6001042fe21 | 2 |
+| Lauren Hendrick | Account Director | XD Agency | 6a7275186e85c6001042fe22 | 2 |
+| John Anicker | Managing Director | Touch Worldwide | 6a7275186e85c6001042fe23 | 2 |
+| Kenna Borgmeier | Account Director | Episode.1 | 6a7275186e85c6001042fe24 | 2 |
+| Jordan Williams | Director of Events | Kamp | 6a7275186e85c6001042fe25 | 2 |
+| Brianna Belgio | Account Director | MOC&CO | 6a7275186e85c6001042fe26 | 2 |
+| Danielle Steger | Managing Director | The Experiential Group | 6a7275186e85c6001042fe27 | 2 |
+| Carin Murphy | Managing Director | Hunters Point | 6a7275186e85c6001042fe28 | 2 |
+| Lindsay Weiss | Managing Account Director | Interluxe Group | 6a7275186e85c6001042fe29 | 2 |
+| Jessica Tavenner | Account Director | Roadwerx | 6a7275186e85c6001042fe2a | 2 |
+
+### One decision this batch needs: the "Production" keyword rail
+
+The SDR skill rejects any title containing "Producer", "Program Manager", or "Production", because
+operations roles draw a reflexive no on new scope. Two people in this batch trip that rail on the
+keyword while reading as experiential-marketing leadership rather than operations:
+
+| Name | Company | Title | Status |
+|---|---|---|---|
+| Karen Ingram | Tara Wilson Agency | Director - Experiential Marketing and Production | Created in Apollo and queued in Monday, on send day 1 |
+| Kim Healing | Sweeter | VP - Director of Events & Production | Not created, held out |
+
+These two were handled inconsistently during the run and that is recorded here rather than tidied
+away: Karen was staged, Kim was held. Nothing is enrolled, so the decision is still fully open. Pick
+one reading and apply it to both. If the rail is meant literally, drop Karen from the enrollment list.
+If it is meant to catch operations producers rather than any title containing the word, add Kim back.
+Either answer is defensible; having two answers in one batch is not.
+
+### Also held out
+
+| Name | Company | Reason |
+|---|---|---|
+| Anne Huffman | Agency Guacamole | Apollo returned no verified address (`email_status: unavailable`). No unverified fallback, so she waits for a later re-check. |
+
+Three Managing Directors were kept: John Anicker (Touch Worldwide), Danielle Steger (The Experiential
+Group), Carin Murphy (Hunters Point). The skill allows that title only at firms under roughly 25
+people. They came through tranche 1's planner-side search, which deliberately included the title, and
+headcount was not re-verified at enrichment. Noted on each Monday item.
+
+### Data quality note
+
+Michael Junne enriched with a verified address on creativeriff.com while Apollo reported his employer
+as Mirrored Media. Company recorded as Creative Riff to match both the sending domain and the original
+research row. Worth a glance before his email goes out.
+
+**Remaining in tranche 1 and not yet staged: 98 people**, the batch 2 candidate pool of 148 less the 50
+worked here. Batch 3 comes off the same ordered pool.
