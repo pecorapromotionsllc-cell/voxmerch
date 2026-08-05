@@ -407,17 +407,17 @@
     <p class="lede">One page, six gates. Each gate tells you something different when it stalls, so the number that
       matters is always the first one that is red. Everything below is read from Apollo and Monday.</p>
     <div class="meta-row">
-      <span>Snapshot <b>4 Aug 2026, 4:05pm CT</b></span>
-      <span>Day <b>5</b> of 93</span>
+      <span>Snapshot <b>5 Aug 2026, 3:20pm CT</b></span>
+      <span>Day <b>6</b> of 93</span>
       <span>First revenue target <b>1 Oct</b></span>
     </div>
   </header>
 
   <section class="figures" aria-label="Headline figures">
     <div class="fig">
-      <span class="fig-label">Emails delivered</span>
-      <span class="fig-num">25</span>
-      <span class="fig-note">email 1 complete · email 2 due today</span>
+      <span class="fig-label">Contacts in sequence</span>
+      <span class="fig-num">74</span>
+      <span class="fig-note">batch 1 of 25 · batch 2 of 49 enrolled 5 Aug</span>
     </div>
     <div class="fig">
       <span class="fig-label">Replies</span>
@@ -452,11 +452,11 @@
           <h3>Sends actually leaving the building</h3>
           <p class="rung-diag">The old campaign died here: <b>35 emails in its entire life</b> against a 1,550/day
             ceiling, because two approval gates required a founder who was busy closing to also be the send button.
-            Both gates are gone. If this number stops moving, nothing else on this page means anything. <b>Throughput is fine.</b> An earlier read of this dashboard warned that sending was capped near 7/day and might need a second mailbox. That was wrong: Apollo's delivered counter lags by hours. All 25 went out within about 27 hours, confirmed one by one in the Sent Items folder. No second mailbox needed. <b>Email 2 works, confirmed by cohort.</b> The 30 July cohort was exactly four people, and all four received email 2 on 4 Aug between 10:02 and 10:33am CT. Same four addresses, four of four, complete. The other 21 received email 1 on Friday 31 July, so they come due Wednesday 5 Aug. <b>The three-day gap counts business days:</b> Thursday plus three business days is Friday, Monday, Tuesday. Two earlier readings of this dashboard were wrong and are worth recording so the mistake is not repeated. The 3 Aug check assumed calendar days. The 4 Aug 10am check ran minutes before the first send, then read an open send window with no sends as proof of failure and reached a confident wrong diagnosis. Apollo does not flush a step when the window opens, it paces roughly ten minutes apart across the day, so an empty Sent Items in the morning means nothing. A per-step <code>max_emails_per_day</code> set on step 1 but absent on steps 2 and 3 looked like the cause and was not: step 2 sends fine without it. No sequence edit was made.</p>
+            Both gates are gone. If this number stops moving, nothing else on this page means anything. <b>Throughput is fine.</b> An earlier read of this dashboard warned that sending was capped near 7/day and might need a second mailbox. That was wrong: Apollo's delivered counter lags by hours. All 25 went out within about 27 hours, confirmed one by one in the Sent Items folder. No second mailbox needed. <b>Email 2 now proven at scale, not just on a cohort of four.</b> The 30 July cohort of four all received email 2 on 4 Aug between 10:02 and 10:33am CT. The remaining 21, who got email 1 on Friday 31 July, came due Wednesday 5 Aug: <b>20 of the 21 went out</b>, paced from 10:01am to 3:08pm CT, counted one by one in Sent Items. The 21st is Emma Jack at Legacy Marketing, still sitting at step 2 in the pacing queue rather than failed. <b>Batch 2 was enrolled the same afternoon:</b> 49 contacts, 25 active immediately and 24 staged paused to auto-unpause the next morning, because 49 in one window would have doubled the largest send day so far. <b>The three-day gap counts business days:</b> Thursday plus three business days is Friday, Monday, Tuesday. Two earlier readings of this dashboard were wrong and are worth recording so the mistake is not repeated. The 3 Aug check assumed calendar days. The 4 Aug 10am check ran minutes before the first send, then read an open send window with no sends as proof of failure and reached a confident wrong diagnosis. Apollo does not flush a step when the window opens, it paces roughly ten minutes apart across the day, so an empty Sent Items in the morning means nothing. A per-step <code>max_emails_per_day</code> set on step 1 but absent on steps 2 and 3 looked like the cause and was not: step 2 sends fine without it. No sequence edit was made.</p>
         </div>
         <div class="rung-right">
-          <span class="rung-val">25</span>
-          <span class="rung-target">day-one cap 25</span>
+          <span class="rung-val">45</span>
+          <span class="rung-target">emails out to date</span>
           <span class="pill good">Running</span>
         </div>
       </div>
@@ -465,9 +465,7 @@
         <span class="rung-n">02</span>
         <div class="rung-body">
           <h3>Deliverability holding</h3>
-          <p class="rung-diag">Zero bounces and zero spam blocks across all 25 delivered, and no bounce notifications in the inbox either. If bounce rate crosses
-            <b>2%</b>, the verified-email filter is not doing its job and the list needs fixing before another
-            batch goes out. This is the gate that fails silently.</p>
+          <p class="rung-diag"><b>First deliverability events landed 5 Aug: one soft bounce and one spam block, both on the same single address.</b> Kristen Wickett at Activate Inc., the one catchall domain flagged as the risk to watch when batch 1 went out on 30 July. Apollo marked her <code>failed</code> and she is now Bounced on the board. <b>Hard bounces remain zero</b> and every other contact is clean, including all 25 of batch 2 that sent today. On a base of 26 a single event reads as 3.85%, which crosses the 2% rule mechanically rather than because reputation moved. The judgement: one bad address, already predicted, not a domain problem. Worth revisiting if a second unrelated address fails. This is the gate that fails silently, so it is read every morning now rather than by hand.</p>
         </div>
         <div class="rung-right">
           <span class="rung-val">0.0%</span>
@@ -550,19 +548,19 @@
         <p>One mailbox, roughly seven weeks of domain age, Apollo warmup running alongside.</p>
       </div>
       <div class="rows">
-        <div class="row"><span class="row-k">Bounces</span><span class="row-v">0 of 25</span></div>
+        <div class="row"><span class="row-k">Bounces</span><span class="row-v">1 of 26</span></div>
         <div class="row"><span class="row-k">Hard bounces</span><span class="row-v">0</span></div>
-        <div class="row"><span class="row-k">Spam blocks</span><span class="row-v">0</span></div>
+        <div class="row"><span class="row-k">Spam blocks</span><span class="row-v">1</span></div>
         <div class="row"><span class="row-k">Unsubscribes</span><span class="row-v">0</span></div>
-        <div class="row"><span class="row-k">Opens (filtered / raw)</span><span class="row-v">6 / 19</span></div>
+        <div class="row"><span class="row-k">Opens (filtered / raw)</span><span class="row-v">8 / 21</span></div>
         <div class="row"><span class="row-k">Daily cap, week 1</span><span class="row-v">25</span></div>
         <div class="row"><span class="row-k">Ramp, weeks 2 and 3</span><span class="row-v">40 → 50+</span></div>
         <div class="row"><span class="row-k">Apollo credits left</span><span class="row-v">4,046</span></div>
         <div class="row"><span class="row-k">Catchall addresses to watch</span><span class="row-v">1</span></div>
         <div class="row"><span class="row-k">Batch 1 sent in full</span><span class="row-v">~27 hrs</span></div>
         <div class="row"><span class="row-k">Auto-replies to triage</span><span class="row-v">0</span></div>
-        <div class="row"><span class="row-k">Last send</span><span class="row-v">4 Aug, 10:33am</span></div>
-        <div class="row"><span class="row-k">Email 2, cohort due</span><span class="row-v">4 of 4</span></div>
+        <div class="row"><span class="row-k">Last send</span><span class="row-v">5 Aug, 3:08pm</span></div>
+        <div class="row"><span class="row-k">Email 2, 5 Aug cohort</span><span class="row-v">20 of 21</span></div>
       </div>
     </section>
 
@@ -587,13 +585,13 @@
         <div class="link" data-ok="no">
           <span class="link-dot" aria-hidden="true"></span>
           <span class="link-txt">A reply marks them finished and stops further sends
-            <small>Still unverified at day 2. The first real reply is the live test. If this leg fails, someone who answers keeps getting emails.</small>
+            <small>Still unverified at day 6, and now the sharpest open question. 25 people hold the offer and zero have replied, so there has been nothing to test with. Inbox swept 5 Aug 3:20pm CT: no prospect replies, no out-of-office auto-replies.</small>
           </span>
         </div>
         <div class="link" data-ok="no">
           <span class="link-dot" aria-hidden="true"></span>
           <span class="link-txt">Monday creates the pipeline item and notifies you
-            <small>Unverified, waiting on the same first reply. Board 18407308519.</small>
+            <small>Unverified, waiting on the same first reply. Board 18407308519. The bridge itself was found broken on 5 Aug and fixed: nothing had ever written the Sequence Stage column it triggers on, so a reply could not have reached Monday even if one had arrived. A weekday sync now writes that column from Apollo.</small>
           </span>
         </div>
       </div>
@@ -638,10 +636,10 @@
       </div>
       <div class="fstep">
         <div class="fbar-wrap">
-          <span class="fbar-label">Enrolled and sending <span>· 25 companies, one person each</span></span>
-          <span class="fbar"><i style="width:0.3%"></i></span>
+          <span class="fbar-label">Enrolled and sending <span>· 74 companies, one person each</span></span>
+          <span class="fbar"><i style="width:0.9%"></i></span>
         </div>
-        <span class="fnum">25</span>
+        <span class="fnum">74</span>
       </div>
     </div>
   </section>
@@ -655,7 +653,7 @@
         <div class="date-item">
           <span class="date-when">31 Jul</span>
           <span class="date-what"><strong>First deliverability read</strong>
-            <small>Bounces, spam blocks, and any reply. Batch 2 waits on this.</small></span>
+            <small>Bounces, spam blocks, and any reply. Batch 2 cleared this gate and enrolled 5 Aug.</small></span>
         </div>
         <div class="date-item">
           <span class="date-when">4 Aug</span>
