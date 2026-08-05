@@ -93,11 +93,25 @@ as the last conversation someone logged.
   emails the wrong person.
 - **Event Booked** moves the item into the Event Booked group.
 
-**Known rough edges, left as they are pending a decision.** New against Not Started and Demoed
-against Demo Attended are duplicate pairs with no defined difference, and only Demo Attended triggers
-the email. The `crm-updater` skill is also told to write "Closed Won", which is not a label on this
-column and will fail. Worth cleaning up, but renaming or deleting labels rewrites history on existing
-items, so it needs a deliberate pass rather than a quiet fix.
+**Duplicate labels, resolved 2026-08-05.** Two pairs meant the same thing: New against Not Started,
+and Demoed against Demo Attended. Both of the redundant halves turned out to be used by **zero** of
+the 120 items on the board, so retiring them rewrites no history.
+
+`Demo Attended` is the survivor of its pair. It already held 50-plus items and it is the label the
+thank-you email hangs off. The open-a-Deal notification, which used to sit on the unused `Demoed`
+label and therefore could never have fired, was rebuilt on `Demo Attended` (automation 7921570239).
+The old one is switched off rather than deleted, because this API token can create and deactivate
+automations but not delete them.
+
+`New` is the survivor of its pair. A saved board view already filters on it.
+
+**`Not Started` and `Demoed` still exist as options and have to be deleted in the Monday UI.** The
+API cannot do it: `change_column_metadata` accepts only `title` and `description`, so status labels
+are not editable programmatically at all. Open the Status column settings, remove those two labels,
+save. Nothing moves, because nothing uses them.
+
+**Still open:** the `crm-updater` skill is told to write "Closed Won", which is not a label on this
+column and will fail when it tries.
 
 ### Outreach Stage (`color_mm5dhte2`)
 
@@ -148,12 +162,18 @@ Both depend entirely on Sequence Stage being written. That is the whole reason t
 | Trigger | Action | On |
 |---|---|---|
 | Status becomes Demo Attended, Segment is HALO AE | **Send the thank-you email from Outlook** | Yes |
+| Status becomes Demo Attended | Notify Mary Anne, "Demo attended - open a Deal" (7921570239) | Yes |
 | Status becomes Event Booked | Move item to Event Booked group | Yes |
 | Due Date arrives, 10:30 CT | Notify Mary Anne | Yes |
 | Due Date minus 1 day, 13:45 CT | Notify Deb | Yes |
 | Incoming and outgoing Outlook mail | Log onto the item | Yes |
-| Status becomes Demoed | Notify "open a Deal" | No |
+| Status becomes Demoed | Notify "open a Deal" (7919397478) | No, superseded by 7921570239 |
 | Due Date 9:00 CT with Activation Status check | Notify | No |
 
-The two disabled ones are worth a decision. "Demoed → open a Deal" being off is part of why the
-Deals board has no items, since nothing prompts opening one.
+So a HALO AE moving to `Demo Attended` now does two things at once: they get the thank-you email, and
+Mary Anne gets prompted to open a Deal. The missing Deal prompt was part of why the Deals board sits
+empty.
+
+One cosmetic flaw in 7921570239: the notification body reads "Check out {item name}" because the
+automation builder overwrote the message text on creation. The **title** carries the instruction, so
+it is still actionable. Editing the body is a UI change if it grates.
