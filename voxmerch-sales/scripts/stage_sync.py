@@ -113,13 +113,21 @@ def derive_stage(status, position):
     Terminal states win over step position, because a contact who replied or bounced
     stops advancing and the position it stopped at says nothing useful.
     """
-    if status == "bounced":
+    if status in ("bounced", "failed"):
+        # "failed" is undocumented but real: Apollo used it on 2026-08-05 for a contact
+        # whose send produced a soft bounce and a spam block. It behaves as terminal, so it
+        # belongs with Bounced rather than falling through to the step position, which would
+        # have left the person looking like a healthy in-sequence contact.
         return "Bounced"
     if status in ("replied", "interested"):
         return "Replied"
     if status == "finished":
         # Finished without replying means all three touches went out.
         return "Touch 3 Sent"
+    if status not in ("active", "paused"):
+        # Do not silently treat an unknown status as progress. Leaving the stage alone is
+        # safer than guessing, and the caller is told to escalate.
+        return None
     return POSITION_TO_STAGE.get(position, "Queued")
 
 
@@ -191,8 +199,12 @@ def main():
     updates = []
     group_moves = []
     unmatched = []
+    unknown_status = []
     for apollo_id, state in sorted(apollo.items(), key=lambda kv: kv[1]["name"] or ""):
         target = derive_stage(state["status"], state["position"])
+        if target is None:
+            unknown_status.append((state["name"], state["status"]))
+            continue
         item = board.get(apollo_id)
         if not item:
             # Expected for the internal test contact. Anything else here means a contact
@@ -219,6 +231,10 @@ def main():
     print(f"\non live sequence: {len(apollo)}   board records matched: {len(apollo) - len(unmatched)}")
     if unmatched:
         print(f"in Apollo but not on the board: {', '.join(n or '?' for n in unmatched)}")
+    if unknown_status:
+        print("\nESCALATE: unrecognised Apollo status, stage left untouched:")
+        for name, status in unknown_status:
+            print(f"  {name}: status={status!r}")
     print(f"stage changes needed: {len(updates)}")
     print(f"group moves needed: {len(group_moves)}")
 

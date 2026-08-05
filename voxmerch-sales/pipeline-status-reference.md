@@ -27,7 +27,7 @@ Where a contact sits in the 3-touch Apollo sequence `6a6ab19632f101001070b98d`.
 | Touch 2 Sent | Email 2 delivered, waiting on email 3 | Apollo advances to step 3 |
 | Touch 3 Sent | All three emails sent, no reply | Apollo marks the contact finished |
 | Replied | The prospect wrote back | Apollo marks the contact replied |
-| Bounced | The address failed | Apollo marks the contact bounced |
+| Bounced | The address failed | Apollo marks the contact `bounced` or `failed` |
 | Not Interested | Explicit no | By hand, from reading the reply |
 | Meeting Booked | A meeting is on the calendar | By hand, or from a booking |
 
@@ -36,6 +36,12 @@ each contact's real state out of Apollo. Before 2026-08-05 nothing wrote it past
 value was typed in during a chat session. That is why the board understated progress by 13 contacts
 on the day the sync was built. Do not hand-edit this column; the sync will overwrite it on the next
 run, and a hand-set `Replied` fires a real automation.
+
+**`failed` is a real Apollo status and it is not in their documented list.** It appeared on
+2026-08-05 on a contact whose send produced a soft bounce and a spam block. The reconciler treats it
+as terminal and maps it to `Bounced`. Any other unrecognised status leaves the stage untouched and
+escalates rather than guessing, because a wrong guess here can make a dead address look like a
+healthy in-sequence contact.
 
 **Cadence timing**, so the dates make sense: email 1 goes 30 minutes after enrollment, email 2 three
 days later, email 3 four days after that. Apollo caps step 1 at 25 sends per day.
