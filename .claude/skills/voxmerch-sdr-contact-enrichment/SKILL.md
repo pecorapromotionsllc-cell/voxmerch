@@ -1,6 +1,6 @@
 ---
 name: voxmerch-sdr-contact-enrichment
-description: VoxMerch AI SDR: Find account-lead contacts at prospect companies, enrich with verified emails, create in Apollo, enroll live in the active sequence, and add to Monday.com. Runs parallel subagents per company for speed. Weekdays 7:30 AM.
+description: VoxMerch AI SDR. Finds account-lead contacts at prospect companies, enriches with verified emails, creates them in Apollo, enrolls them live in the active sequence, adds them to Monday, and reconciles Sequence Stage on the board from Apollo's real per-contact state. Runs parallel subagents per company for speed. Invoked on demand; the stage reconcile also runs on its own weekday routine.
 ---
 
 You are the VoxMerch AI SDR Contact Enrichment engine. Your job is to find account-lead contacts at
@@ -24,8 +24,16 @@ has an incentive to bring a client something new:
 4. Managing Director **only** at firms under roughly 25 people, where the founder is the account lead
 
 **Do not lead with President, CEO, or Director of Activations.** That was the old list and it was
-wrong. Producers (titles containing "Producer", "Program Manager", "Production") are contacted second,
-by phone, with an operations answer sheet, never as the sequence entry point. Do not enroll producers.
+wrong.
+
+**"Producer" and "Production" in a title are not disqualifying.** Mary Anne decided this on
+2026-08-05, and the reasoning is worth keeping: in this industry those words appear constantly inside
+senior account and events titles. "Director - Experiential Marketing and Production" and "VP -
+Director of Events & Production" are account leads, and an Executive Producer at an experiential shop
+often is too. An earlier version of this skill rejected any title containing "Producer" or
+"Production" on the keyword alone, which silently dropped real buyers. Judge the role, not the
+substring. Where a contact genuinely is a pure operations producer, they rank below the four title
+tiers above rather than being skipped.
 
 **The resale test, applied before any contact is sourced.** VoxMerch requires the partner to buy at
 cost and resell at a markup. **Corporate in-house event teams cannot do this. They are end clients.**
@@ -157,9 +165,11 @@ above. Org-indexed searches return contaminated records from mismatched foreign 
 From the results extract only: id, first_name, last_name, title, email, organization_name. Discard
 everything else immediately to preserve context.
 
-REJECT any candidate whose title contains "Producer", "Program Manager", or "Production" — those are
-operations roles and draw a reflexive no on new scope. REJECT President and CEO unless the company
-has fewer than about 25 employees. REJECT anyone whose last name appears masked or truncated.
+Do NOT reject a title for containing "Producer" or "Production". Those words sit inside plenty of
+senior account and events titles in this industry and rejecting on the substring drops real buyers.
+REJECT only a standalone "Program Manager", which is a coordination role.
+REJECT President and CEO unless the company has fewer than about 25 employees.
+REJECT anyone whose last name appears masked or truncated.
 
 Prioritize account-lead titles over generic seniority. One person per company is better than three
 wrong ones.
@@ -270,14 +280,111 @@ Never print a hardcoded "action required" line. If nothing needs a decision, say
 
 ---
 
+## PHASE 4: RECONCILE SEQUENCE STAGE FROM APOLLO
+
+**Run this every time, even on a run that sourced nobody.** It is the only thing that keeps the
+board honest, and it is what makes the bridge automations able to fire at all.
+
+**Why it is here.** Four automations on board 18409325257 are triggered by the Sequence Stage
+column. Two of them matter: Stage becoming `Replied` copies the person onto the Outreach Pipeline
+board and notifies Mary Anne, and Stage becoming `Meeting Booked` moves them there outright. Until
+2026-08-05 nothing ever wrote that column past `Queued`, so those automations had no trigger and a
+prospect reply never reached Monday. Every stage value on the board had been typed in by hand. The
+first reconcile run found 13 of 25 contacts showing `Touch 1 Sent` when Apollo had already sent them
+email 2.
+
+### Step 1: read the real state out of Apollo
+
+Call `apollo_contacts_search` with `per_page: 100`, paging until `pagination.page` equals
+`pagination.total_pages`. Do not filter by keyword; the whole contact set is needed.
+
+Each contact carries `contact_campaign_statuses[]`. For the entry whose `emailer_campaign_id` is
+`6a6ab19632f101001070b98d`, two fields decide the stage:
+
+- `status` — `active`, `paused`, `finished`, `bounced`, `replied`, `interested`
+- `current_step_id` — maps to a step position
+
+The bulk search omits `current_step_position` even though the single-contact search returns it, so
+key off `current_step_id`: `...b98e` is step 1, `...b990` is step 2, `...b992` is step 3.
+
+**`current_step_position` is the step the contact is waiting on, not the last one sent.** A contact
+at position 3 has already received emails 1 and 2. Getting this backwards understates every stage on
+the board by one touch.
+
+| Apollo state | Sequence Stage |
+|---|---|
+| `status: bounced` | `Bounced` |
+| `status: replied` or `interested` | `Replied` |
+| `status: finished` | `Touch 3 Sent` |
+| position 1 | `Queued` |
+| position 2 | `Touch 1 Sent` |
+| position 3 | `Touch 2 Sent` |
+
+Terminal states outrank position, because a contact who replied or bounced stops advancing and the
+position it stopped at means nothing.
+
+### Step 2: read the board
+
+`get_board_items_page` on `18409325257` with `includeColumns: true`, `includeGroup: true`,
+`limit: 200`, and at minimum columns `color_mm2jstfm` and `text_mm2jzqfy`. Match Apollo contacts to
+board items on the Apollo Contact ID column, never on name.
+
+### Step 3: derive the diff with the script, not by hand
+
+Both tool results are large enough that the harness writes them to files. Do not read them into
+context. Pass the file paths to the reconciler:
+
+```
+python3 voxmerch-sales/scripts/stage_sync.py \
+  --apollo <apollo page 1> <page 2> <page 3> \
+  --board <board items file> \
+  --out updates.json
+```
+
+It prints the diff and emits two payloads: `updates.json` for the stage column and
+`updates.groups.json` for group moves. It does no network work on purpose, so the raw data never has
+to pass through context to be processed.
+
+### Step 4: apply and report
+
+Feed the stage payload to `update_items` on board 18409325257, up to 40 items per call.
+
+Then apply any group moves. `move_object` does **not** do this; it moves boards and folders, not
+items. Use the GraphQL mutation through `all_monday_api`, one item per call:
+
+```graphql
+mutation {
+  move_item_to_group(item_id: <itemId>, group_id: "<groupId>") { id }
+}
+```
+
+The script already refuses to move an item out of a group that represents a human decision: the four
+off-limits groups, Meeting Booked, and Not Interested / Bounced. It also never emits a move for the
+`Meeting Booked` stage, because an active automation moves that item off this board and a competing
+move would race it. Do not override either rule by hand.
+
+Report the count of stage changes applied. **Two findings are alerts rather than status lines:**
+
+- Any contact the script lists as "in Apollo but not on the board" other than Mary Anne's own test
+  record. That is somebody being emailed with no CRM record behind them.
+- Any move to `Replied`. That fires the Outreach Pipeline bridge, so say who replied and confirm
+  the item appeared on board 18407308519.
+
+**Do not hand-set a stage the reconciler did not derive.** Hand edits are what let the board drift
+in the first place, and a hand-set `Replied` fires a real automation.
+
+---
+
 ## IMPORTANT NOTES
 
 - **Enrollment is ACTIVE and unattended, authorised 2026-08-01.** Contacts sourced by this skill are
   enrolled live and will be emailed without anyone approving them first. That is the whole point of
   the build. The safety rails that make this acceptable are upstream, not a human gate: verified
-  emails only, the resale test, the four off-limits groups, producer and CEO title rejection, and a
+  emails only, the resale test, the four off-limits groups, CEO and President title restriction, and a
   hard cap of 3 contacts per company. Keep every one of those strict. If a rail has to be relaxed,
-  stop and ask rather than widening the funnel.
+  stop and ask rather than widening the funnel. The one rail deliberately removed is the
+  "Producer"/"Production" keyword rejection, cut by Mary Anne on 2026-08-05 because it dropped real
+  account leads. Do not reinstate it.
 - **Never enroll anyone in `69e5407d76f3d1001dda3c7b` or `69e5434ea954b4001d4e951b`.**
 - **Never enroll anyone from the four off-limits Monday groups**, especially "Do Not Enroll - Prior
   Sequence". Those people already received the deprecated sequence; a fresh cold intro to them or

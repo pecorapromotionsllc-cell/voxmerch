@@ -8,7 +8,7 @@
 
 **Curation counts:** 600 rows fetched, approximately 569 unique people after de-duplication across the two searches. Initially kept 250 people across 178 companies; **11 rows were then held back after a cross-check against the old Sales Development Pipeline board, leaving 239 people across 173 companies ready to enroll.** Dropped at curation: approximately 319. Note: the company count runs above the original 80-100 estimate because most qualifying firms surfaced only 1-2 matching titles; the 3-per-company cap was applied wherever more appeared.
 
-**Enrollment status:** approved by Mary Anne 2026-07-30. **Batch 1 of 25 is enrolled and sending.** **Batch 2 of 48 is staged in Apollo and Monday as of 2026-08-04 but not enrolled, so no batch 2 email has been sent.** See the Batch 1 and Batch 2 sections at the end of this file. The remaining 98 are researched but not created in Apollo and not enrolled.
+**Enrollment status:** approved by Mary Anne 2026-07-30. **Batch 1 of 25 is enrolled and sending. Batch 2 of 49 is enrolled and sending as of 2026-08-05**, split 25 active that day and 24 auto-unpausing the next morning. See the Batch 1 and Batch 2 sections at the end of this file. The remaining 98 are researched but not created in Apollo and not enrolled.
 
 ## Segment: Agency
 
@@ -388,29 +388,39 @@ than a pass. See the Batch 2 section below.
 
 ---
 
-## Batch 2 STAGED IN APOLLO, ENROLLMENT NOT YET EXECUTED (2026-08-04)
+## Batch 2 ENROLLED AND SENDING (2026-08-05)
 
 Batch 1's gate cleared before this batch was built: 26 delivered, 0 bounced, 0 spam blocked,
 0 unsubscribed, and the sequence reading `active: true`. Email 2 was confirmed sending on 4 Aug
 across the full due cohort. That is what unlocked batch 2.
 
-**Where this batch actually stands.** 50 people enriched, 49 returned a verified email, 48 created
-as Apollo contacts, 48 added to Monday board 18409325257 in "Queued for Outreach" at stage Queued.
-**Nobody is enrolled and no email has been sent.** The enrollment call to sequence
-`6a6ab19632f101001070b98d` was blocked by the session's permission gate, so the batch is staged and
-waiting on a decision. Apollo list labels applied at creation: "Event Activation" and
-"Tranche 1 Batch 2 - Aug 2026".
+**Where this batch stands.** 50 people enriched, 49 with a verified email, **all 49 created in Apollo
+and enrolled live in sequence `6a6ab19632f101001070b98d`, sending from maryanne@voxmerch.com.** All 49
+have items on Monday board 18409325257. Nobody was skipped at enrollment.
 
-**Selection rule, same as batch 1: one person per company.** 48 contacts across 48 distinct
+Enrollment was split across two send days to stay inside the ramp:
+
+- **25 enrolled active on 2026-08-05.** Email 1 goes out in the next sending window.
+- **24 enrolled paused with `auto_unpause_at` 2026-08-06 13:30 UTC**, so they start the next morning.
+
+Apollo independently caps step 1 at 25 sends per day, which is the same number batch 1 proved, so the
+split matches what the platform would have enforced anyway.
+
+**Apollo lists: `Event Activation` and `Tranche 1 Batch 2 - Aug 2026`, applied 2026-08-05.** They were
+not applied at creation. The `label_names` field on `apollo_contacts_bulk_create` is silently ignored,
+which had also failed for batch 1 without anyone noticing: neither batch list existed in Apollo until
+both were built with `apollo_labels_add_entity_ids_to_label_names`. Use that call, not the create
+parameter.
+
+**Selection rule, same as batch 1: one person per company.** 49 contacts across 49 distinct
 companies, no company overlapping batch 1, nobody from the 11-person held-back list, nobody from the
 four off-limits Monday groups.
 
-**Send velocity, when enrollment does run.** The outbound plan puts week two at roughly 40/day and
-warns that a sudden jump is the one thing that still triggers classification independently of content
-or reputation. 48 in a single window would be nearly double the largest day so far. The staged plan is
-to split it: 24 active, and the other 24 added `paused` with `auto_unpause_at` on the next business
-morning. Batch 1's step 2 and step 3 sends land in the same windows and draw on the same mailbox, so
-the real daily total runs above the new-contact count.
+**Why the split.** The outbound plan puts week two at roughly 40/day and warns that a sudden jump is
+the one thing that still triggers classification independently of content or reputation. 49 in a
+single window would have been nearly double the largest day so far. Batch 1's step 2 and step 3 sends
+land in the same windows and draw on the same mailbox, so the real daily total runs above the
+new-contact count.
 
 | Name | Title | Company | Apollo contact id | Send day |
 |---|---|---|---|---|
@@ -463,22 +473,23 @@ the real daily total runs above the new-contact count.
 | Lindsay Weiss | Managing Account Director | Interluxe Group | 6a7275186e85c6001042fe29 | 2 |
 | Jessica Tavenner | Account Director | Roadwerx | 6a7275186e85c6001042fe2a | 2 |
 
-### One decision this batch needs: the "Production" keyword rail
+### The "Production" keyword rail, removed
 
-The SDR skill rejects any title containing "Producer", "Program Manager", or "Production", because
-operations roles draw a reflexive no on new scope. Two people in this batch trip that rail on the
-keyword while reading as experiential-marketing leadership rather than operations:
+The SDR skill used to reject any title containing "Producer", "Program Manager", or "Production",
+on the theory that operations roles draw a reflexive no on new scope. Two people in this batch tripped
+it on the keyword while plainly being account leads, and they were handled inconsistently during the
+2026-08-04 run: Karen Ingram was staged, Kim Healing was held out.
 
-| Name | Company | Title | Status |
+**Mary Anne removed the rail on 2026-08-05**, with the reasoning that those words appear constantly
+inside senior titles in this industry and rejecting on the substring drops real buyers. Both are now
+enrolled. Kim Healing was created on 2026-08-05 from the verified email already captured on 2026-08-04,
+so no extra Apollo credit was spent. "Program Manager" on its own remains a reject, since it was not
+part of the instruction.
+
+| Name | Company | Title | Now |
 |---|---|---|---|
-| Karen Ingram | Tara Wilson Agency | Director - Experiential Marketing and Production | Created in Apollo and queued in Monday, on send day 1 |
-| Kim Healing | Sweeter | VP - Director of Events & Production | Not created, held out |
-
-These two were handled inconsistently during the run and that is recorded here rather than tidied
-away: Karen was staged, Kim was held. Nothing is enrolled, so the decision is still fully open. Pick
-one reading and apply it to both. If the rail is meant literally, drop Karen from the enrollment list.
-If it is meant to catch operations producers rather than any title containing the word, add Kim back.
-Either answer is defensible; having two answers in one batch is not.
+| Karen Ingram | Tara Wilson Agency | Director - Experiential Marketing and Production | Enrolled, send day 1 |
+| Kim Healing | Sweeter | VP - Director of Events & Production | Enrolled, send day 2 |
 
 ### Also held out
 
@@ -497,5 +508,33 @@ Michael Junne enriched with a verified address on creativeriff.com while Apollo 
 as Mirrored Media. Company recorded as Creative Riff to match both the sending domain and the original
 research row. Worth a glance before his email goes out.
 
+Kim Healing (Sweeter, Apollo contact `6a737d169d8de20015948213`, Monday item 12727721901) is the 49th,
+added on 2026-08-05 and on send day 2. She is not in the table above because that table was written
+before the rail came down.
+
 **Remaining in tranche 1 and not yet staged: 98 people**, the batch 2 candidate pool of 148 less the 50
 worked here. Batch 3 comes off the same ordered pool.
+
+### What this batch changed about how the machine works
+
+Three defects surfaced while shipping batch 2 and all three are fixed. They are recorded here because
+each was silent, and a silent failure is the kind that repeats.
+
+1. **Nothing wrote Sequence Stage.** The four bridge automations on board 18409325257 are all triggered
+   by that column and nothing ever advanced it past `Queued`, so a prospect reply could never reach
+   Monday. Every stage value on the board had been typed in by hand during chat sessions. The first
+   reconcile run on 2026-08-05 found 13 of 25 batch-1 contacts reading `Touch 1 Sent` when Apollo had
+   already sent them email 2. Fixed by `voxmerch-sales/scripts/stage_sync.py`, Phase 4 of the SDR
+   skill, and a weekday routine.
+2. **The SDR skill that loaded was the pre-rebuild version.** The corrected file written 2026-08-01 sat
+   in the repo as a loose markdown file, which nothing loads. The copy sessions actually used still
+   pointed at the deprecated sequence `69e5407d76f3d1001dda3c7b`, enrolled everyone paused, led with
+   President and CEO titles, and had neither the resale test nor the off-limits groups. It never ran
+   unattended only because no routine was ever created for it, despite its own description claiming
+   weekdays at 7:30 AM. Fixed by moving it to `.claude/skills/voxmerch-sdr-contact-enrichment/SKILL.md`.
+3. **Apollo list labels never applied.** `label_names` on `apollo_contacts_bulk_create` is silently
+   ignored. Neither batch list existed in Apollo until 2026-08-05. Fixed for both batches with
+   `apollo_labels_add_entity_ids_to_label_names`.
+
+Correction to this file's own earlier claim: the batch 1 section said the Apollo list label was
+"Tranche 1 Batch 1 - Aug 2026". That list did not exist until 2026-08-05.
