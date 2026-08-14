@@ -323,11 +323,22 @@ the board by one touch.
 Terminal states outrank position, because a contact who replied or bounced stops advancing and the
 position it stopped at means nothing.
 
-### Step 2: read the board
+**`status: finished` is ambiguous and reading it as end-of-cadence is a trap.** Apollo sets it both
+when all three touches have gone out and when the sequence was cut short, recording which in
+`inactive_reason`. Michael Junne replied on 2026-08-07 and Apollo marked him `finished` with
+`inactive_reason: replied`. Read as plain "finished" that becomes `Touch 3 Sent`, which would have
+overwritten his `Replied` stage and erased the only reply the campaign has produced. Always read
+`inactive_reason` before falling back to step position.
+
+### Step 2: read both boards
 
 `get_board_items_page` on `18409325257` with `includeColumns: true`, `includeGroup: true`,
-`limit: 200`, and at minimum columns `color_mm2jstfm` and `text_mm2jzqfy`. Match Apollo contacts to
-board items on the Apollo Contact ID column, never on name.
+`limit: 300`, columns `color_mm2jstfm`, `text_mm2jzqfy`, `text_mm2jqj2b`, `text_mm2j4wc9` and
+`email_mm2jf16f`. The last three are what a promoted warm-board item is built from. Match Apollo
+contacts to board items on the Apollo Contact ID column, never on name.
+
+Then the same call on the **Outreach Pipeline `18407308519`** with column `email_mm2p17ty`. This is
+what stops the sync minting a duplicate warm item every morning for someone who sits at Replied.
 
 ### Step 3: derive the diff with the script, not by hand
 
@@ -337,12 +348,20 @@ context. Pass the file paths to the reconciler:
 ```
 python3 voxmerch-sales/scripts/stage_sync.py \
   --apollo <apollo page 1> <page 2> <page 3> \
-  --board <board items file> \
+  --board <cold board file> \
+  --warm <outreach pipeline file> \
   --out updates.json
 ```
 
-It prints the diff and emits two payloads: `updates.json` for the stage column and
-`updates.groups.json` for group moves. It does no network work on purpose, so the raw data never has
+**The script refuses to run on input more than 6 hours old.** That guard exists because it was once
+handed week-old Apollo files and proposed pushing 51 contacts backwards to `Queued`, which would have
+made two thirds of the campaign look unsent. If it refuses, re-fetch; never work around it. It also
+prints a loud warning for any contact that would move backwards along the ladder, which with fresh
+input should be rare.
+
+It prints the diff and emits three payloads: `updates.json` for the stage column,
+`updates.groups.json` for group moves, and `updates.promotions.json` for people to add to the warm
+board. It does no network work on purpose, so the raw data never has
 to pass through context to be processed.
 
 ### Step 4: apply and report
@@ -362,6 +381,19 @@ The script already refuses to move an item out of a group that represents a huma
 off-limits groups, Meeting Booked, and Not Interested / Bounced. It also never emits a move for the
 `Meeting Booked` stage, because an active automation moves that item off this board and a competing
 move would race it. Do not override either rule by hand.
+
+Finally, apply `updates.promotions.json` with `create_items` on board **18407308519**, up to 20 per
+call. Pass each entry through exactly as emitted.
+
+**Why the sync does this rather than a board automation.** Automation 7919396835 was built to create
+the warm item when Sequence Stage becomes `Replied`. It never fired. Michael Junne's stage read
+`Replied` for two days with no warm item and no notification, and the likely reason is that a "when
+status changes" trigger does not respond to a column change made through the API. The sync creating
+the item is the reliable path. Leave the automation in place; the duplicate check means a late firing
+costs nothing.
+
+**Never write `Demo Attended` onto a warm item.** On a contact whose Segment is `HALO AE` that label
+sends them a real email from Mary Anne's mailbox. Promotions arrive at `New`, which is inert.
 
 Report the count of stage changes applied. **Two findings are alerts rather than status lines:**
 

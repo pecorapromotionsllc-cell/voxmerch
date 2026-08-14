@@ -27,7 +27,7 @@ Where a contact sits in the 3-touch Apollo sequence `6a6ab19632f101001070b98d`.
 | Touch 2 Sent | Email 2 delivered, waiting on email 3 | Apollo advances to step 3 |
 | Touch 3 Sent | All three emails sent, no reply | Apollo marks the contact finished |
 | Replied | The prospect wrote back | Apollo marks the contact replied |
-| Bounced | The address failed | Apollo marks the contact `bounced` or `failed` |
+| Bounced | The address failed | Apollo marks the contact `bounced` or `failed`, or finishes them with `inactive_reason` of bounced or spam_blocked |
 | Not Interested | Explicit no | By hand, from reading the reply |
 | Meeting Booked | A meeting is on the calendar | By hand, or from a booking |
 
@@ -36,6 +36,13 @@ each contact's real state out of Apollo. Before 2026-08-05 nothing wrote it past
 value was typed in during a chat session. That is why the board understated progress by 13 contacts
 on the day the sync was built. Do not hand-edit this column; the sync will overwrite it on the next
 run, and a hand-set `Replied` fires a real automation.
+
+**`finished` does not mean the cadence completed.** Apollo sets `finished` both when all three
+touches have gone out and when the sequence was cut short by a reply, recording which in
+`inactive_reason`. Read plainly it would have overwritten Michael Junne's `Replied` with
+`Touch 3 Sent` and erased the only reply the campaign has produced. The reconciler reads
+`inactive_reason` first, and treats `Replied`, `Meeting Booked`, `Not Interested` and `Bounced` as
+sticky: once the board carries one, nothing downgrades it back onto the touch ladder.
 
 **`failed` is a real Apollo status and it is not in their documented list.** It appeared on
 2026-08-05 on a contact whose send produced a soft bounce and a spam block. The reconciler treats it
@@ -141,8 +148,17 @@ Attended email, so it is not decorative. Source records how they arrived, includ
 
 ## How a cold contact crosses over
 
-1. Sequence Stage becomes **Replied**. Automation 7919396835 creates an item on Outreach Pipeline and
-   notifies Mary Anne. The cold item stays put, so check for a duplicate before working it.
+**The sync does this now, not a board automation.** Automation 7919396835 was built to create the
+warm item when Sequence Stage becomes `Replied`, and it never fired once. Michael Junne's stage read
+`Replied` from 10 to 13 August with no warm item and no notification. The likely reason is that a
+"when status changes" trigger does not respond to a column change made through the API, only to one
+made in the UI. The automation is left switched on; the sync's duplicate check means a late firing
+costs nothing.
+
+1. Sequence Stage becomes **Replied**. The weekday sync creates an item on the Outreach Pipeline in
+   Event Activation Companies, at Status `New`, Source `Cold Sequence Reply`, carrying company, role,
+   email and a note pointing back at the cold item. The cold item stays put and moves to the Replied
+   group, so check for a duplicate before working it.
 2. Sequence Stage becomes **Meeting Booked**. Automation 7918236607 moves the item onto Outreach
    Pipeline in the Event Booked group, carrying company, title, email, phone, notes, Apollo ID,
    segment and revenue. Automation 7919397410 notifies her separately.
