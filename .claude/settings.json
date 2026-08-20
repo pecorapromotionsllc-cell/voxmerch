@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Apollo-io__apollo_contacts_search",
+      "mcp__Apollo-io__apollo_emailer_campaigns_search",
+      "mcp__monday-com__get_board_items_page",
+      "mcp__github__pull_request_read"
+    ]
+  }
+}
