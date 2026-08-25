@@ -30,3 +30,8 @@ node_modules/
 
 # Office temp
 ~WRL*.tmp
+
+# stage_sync.py per-run output payloads (regenerated every run)
+updates.json
+updates.groups.json
+updates.promotions.json
