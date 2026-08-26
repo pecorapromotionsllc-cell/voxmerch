@@ -69,6 +69,8 @@ APOLLO_ID_COLUMN = "text_mm2jzqfy"
 COLD_COMPANY_COLUMN = "text_mm2jqj2b"
 COLD_TITLE_COLUMN = "text_mm2j4wc9"
 COLD_EMAIL_COLUMN = "email_mm2jf16f"
+COLD_PHONE_COLUMN = "phone_mm6k1xd8"
+WARM_PHONE_COLUMN = "phone_mm6kh8xa"
 
 # ---------------------------------------------------------------------------
 # Promotion to the warm board.
@@ -256,9 +258,41 @@ def collect_apollo(paths):
     return states
 
 
-def collect_board(path):
+def _phone_text(value):
+    """Monday returns phone columns as either a plain string or {'phone': ...}."""
+    if isinstance(value, dict):
+        return value.get("phone") or ""
+    return value or ""
+
+
+def load_board_pages(paths):
+    """Merge one or more get_board_items_page result files into a single item list.
+
+    Boards past ~300 items paginate. Refuse when the supplied files still say has_more,
+    because a missing page makes every contact on it look absent from the board, and the
+    "in Apollo but not on the board" alert would fire for all of them.
+    """
+    items = []
+    open_cursors = 0
+    for path in paths:
+        payload = load_json(path)
+        items.extend(payload.get("items") or [])
+        if (payload.get("pagination") or {}).get("has_more"):
+            open_cursors += 1
+    if open_cursors >= len(paths):
+        print(
+            "REFUSING TO RUN: the board fetch is incomplete (pagination.has_more is true and no "
+            "continuation file was supplied). Re-call get_board_items_page with the nextCursor "
+            "value until has_more is false, and pass every page file to this script.",
+            file=sys.stderr,
+        )
+        raise SystemExit(2)
+    return items
+
+
+def collect_board(paths):
     """Return {apollo_contact_id: {item_id, name, stage}} for items carrying an Apollo id."""
-    items = load_json(path).get("items") or []
+    items = load_board_pages(paths)
     board = {}
     for item in items:
         values = item.get("column_values") or {}
@@ -273,6 +307,7 @@ def collect_board(path):
             "company": values.get(COLD_COMPANY_COLUMN) or "",
             "title": values.get(COLD_TITLE_COLUMN) or "",
             "email": values.get(COLD_EMAIL_COLUMN) or "",
+            "phone": _phone_text(values.get(COLD_PHONE_COLUMN)),
         }
     return board
 
@@ -282,14 +317,14 @@ def normalise(text):
     return (text or "").strip().lower()
 
 
-def collect_warm(path):
+def collect_warm(paths):
     """Return the emails and names already present on the Outreach Pipeline.
 
     This is what makes the sync safe to run every weekday. A contact sits at Replied
     indefinitely, so without a duplicate check the sync would mint a fresh warm-board item
     for the same person every morning.
     """
-    items = load_json(path).get("items") or []
+    items = load_board_pages(paths)
     emails, names = set(), set()
     for item in items:
         values = item.get("column_values") or {}
@@ -303,12 +338,12 @@ def collect_warm(path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--apollo", nargs="+", required=True, help="apollo_contacts_search result files")
-    parser.add_argument("--board", required=True, help="get_board_items_page result file, cold board")
-    parser.add_argument("--warm", help="get_board_items_page result file, Outreach Pipeline 18407308519")
+    parser.add_argument("--board", nargs="+", required=True, help="get_board_items_page result file(s), cold board; pass every page when the board paginates")
+    parser.add_argument("--warm", nargs="+", help="get_board_items_page result file(s), Outreach Pipeline 18407308519")
     parser.add_argument("--out", help="write the update_items payload here")
     args = parser.parse_args()
 
-    inputs = list(args.apollo) + [args.board] + ([args.warm] if args.warm else [])
+    inputs = list(args.apollo) + list(args.board) + (list(args.warm) if args.warm else [])
     check_freshness(inputs)
 
     apollo = collect_apollo(args.apollo)
@@ -378,6 +413,8 @@ def main():
                 }
                 if item["email"]:
                     column_values["email_mm2p17ty"] = {"email": item["email"], "text": item["email"]}
+                if item.get("phone"):
+                    column_values[WARM_PHONE_COLUMN] = item["phone"]
                 print(f"  PROMOTE {state['name']:<26} -> Outreach Pipeline ({target})")
                 promotions.append(
                     {
