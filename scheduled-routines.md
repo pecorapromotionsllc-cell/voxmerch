@@ -57,6 +57,22 @@ date differ, and it is the row most likely to get "fixed" by somebody who has no
 3:00 AM CST, comfortably after the 2:00 AM local transition. So it is awake and correct at the
 moment it needs to act, and moving its own cron afterwards only affects the following week.
 
+## Testing the table
+
+`scripts/dst_sim.py` reproduces the routine's decision rule offline: no network, no tools, no
+mutation. **Run it after editing the table here or in the routine's prompt.**
+
+    python3 scripts/dst_sim.py
+
+It checks table integrity (twelve rows, unique ids, and that each CST cron is its CDT cron plus
+exactly one hour with every other field untouched), the Sunday gate against the real transition
+dates from 2026 to 2035, a full fall-back then spring-forward round trip that has to land every
+routine back where it started, that firing twice on the same Sunday is a no-op, that a cron changed
+by hand is reported rather than overwritten, and that the dashboard still refreshes one hour after
+the Apollo sync under both offsets. Exit code is non-zero on any failure.
+
+Last run 2026-08-24: all checks passed.
+
 ## Ordering on transition day
 
 The sequence that matters most is Apollo sync at 7:00 AM feeding the dashboard refresh at 8:00 AM.
