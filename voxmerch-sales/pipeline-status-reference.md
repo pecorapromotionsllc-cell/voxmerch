@@ -58,6 +58,12 @@ days later, email 3 four days after that. Apollo caps step 1 at 25 sends per day
 Which ICP the contact belongs to: `Event Activation` or `Promo Distributor`. Set once at creation,
 never changes. Note the singular form; the Apollo list name is plural and the board label is not.
 
+### Phone (`phone_mm6k1xd8`)
+
+Added 2026-08-26. Filled from the Apollo contact record at backfill or enrichment, no extra
+credits. Most Apollo records already carry a work or HQ number, so this is a passthrough, not a
+paid reveal.
+
 ### Groups on this board
 
 Groups restate the stage, so the sync keeps them aligned rather than leaving them to drift:
@@ -81,6 +87,12 @@ and a fresh cold intro to them or a colleague is the mistake that damages a targ
 ## Board 18407308519, Outreach Pipeline (warm)
 
 Real relationships. People here have replied, been introduced, booked something, or come inbound.
+
+### Phone (`phone_mm6kh8xa`)
+
+Added 2026-08-26 for post-reply follow-up. The stage sync copies the cold board's Phone across on
+promotion. Contacts who never came through Apollo (most HALO AEs) have nothing to copy, so an empty
+cell here is normal, not an error.
 
 ### Status (`color_mm24v105`) — the main one
 
