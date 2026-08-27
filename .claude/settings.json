@@ -1,10 +1,22 @@
 {
   "permissions": {
     "allow": [
-      "mcp__Apollo-io__apollo_contacts_search",
-      "mcp__Apollo-io__apollo_emailer_campaigns_search",
-      "mcp__monday-com__get_board_items_page",
-      "mcp__github__pull_request_read"
+      "mcp__Apollo-io",
+      "mcp__monday-com",
+      "mcp__github__pull_request_read",
+      "Bash(python3 voxmerch-sales/scripts/stage_sync.py:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(git checkout:*)"
+    ],
+    "ask": [
+      "mcp__Apollo-io__apollo_email_account_purchase_create",
+      "mcp__Apollo-io__apollo_emailer_messages_send_now",
+      "mcp__Apollo-io__apollo_sequences_create",
+      "mcp__Apollo-io__apollo_sequences_update"
     ]
   }
 }
