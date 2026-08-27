@@ -4,6 +4,8 @@
       "mcp__Apollo-io",
       "mcp__monday-com",
       "mcp__github__pull_request_read",
+      "mcp__github__list_pull_requests",
+      "mcp__github__create_pull_request",
       "Bash(python3 voxmerch-sales/scripts/stage_sync.py:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
