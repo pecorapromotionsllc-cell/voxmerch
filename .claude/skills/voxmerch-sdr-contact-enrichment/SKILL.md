@@ -295,8 +295,29 @@ email 2.
 
 ### Step 1: read the real state out of Apollo
 
-Call `apollo_contacts_search` with `per_page: 100`, paging until `pagination.page` equals
-`pagination.total_pages`. Do not filter by keyword; the whole contact set is needed.
+**Prefer `apollo_pull.py` when `APOLLO_API_KEY` is set in the environment:**
+
+```
+python3 voxmerch-sales/scripts/apollo_pull.py --out-dir /tmp/apollo
+```
+
+One command instead of 19 approval-gated tool calls, and the page files never pass through
+context. This exists because of the 2026-09-01 run: it fired at 7:16 AM CDT, fetched page 1
+of 19 through the MCP tool, hit a permission block on page 2, and stalled for eight and a
+half hours with nobody there to approve it. Nineteen separate calls are nineteen separate
+chances to stall, and each oversized result costs a few hundred tokens of "output too large"
+notice to learn nothing. See `voxmerch-sales/docs/scheduled-run-permissions.md`.
+
+**Fallback, when no key is set:** call `apollo_contacts_search` with `per_page: 100`, paging
+until `pagination.page` equals `pagination.total_pages`. Do not filter by keyword; the whole
+contact set is needed.
+
+**Narrowing the pull is worth doing but only with the coverage guard on.** The account holds
+far more contacts than the campaign touches (1,839 across 19 pages on 2026-09-01), so
+`apollo_pull.py --label-id <list id>` cuts it to a handful of pages. The risk is silent: if
+the filter drops a contact who is enrolled, the reconciler never sees them and their board
+stage simply stays stale with nothing printed. So pass `--strict-coverage` to `stage_sync.py`
+whenever the pull was filtered, and never run the filter without it.
 
 Each contact carries `contact_campaign_statuses[]`. For the entry whose `emailer_campaign_id` is
 `6a6ab19632f101001070b98d`, two fields decide the stage:
@@ -352,6 +373,12 @@ python3 voxmerch-sales/scripts/stage_sync.py \
   --warm <outreach pipeline file> \
   --out updates.json
 ```
+
+Add `--strict-coverage` whenever the Apollo pull was filtered. It reports any board item
+whose Apollo contact id the pull never returned, and refuses rather than reconciling a set
+it knows is incomplete. Without it that case is invisible: the contact is skipped, the stage
+keeps its old value, and no existing warning covers it. `test_stage_sync.py` pins this
+behaviour down.
 
 **The script refuses to run on input more than 6 hours old.** That guard exists because it was once
 handed week-old Apollo files and proposed pushing 51 contacts backwards to `Queued`, which would have

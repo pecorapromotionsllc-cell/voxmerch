@@ -221,14 +221,23 @@ def derive_stage(status, position, reason=None):
 
 
 def collect_apollo(paths):
-    """Return {apollo_contact_id: {...}} for every contact on the live sequence."""
+    """Return live-sequence states plus every contact id the pull mentioned at all.
+
+    The second return value is what makes a *filtered* pull safe to use. Restricting the
+    Apollo pull to one list cuts it from 19 pages to a handful, but if the filter drops a
+    contact who is enrolled, this script would simply never see them: their board item
+    would keep whatever stage it already had, and nothing would say so. Knowing which ids
+    the pull covered at all separates "not on the live sequence" from "never fetched".
+    """
     states = {}
+    seen_ids = set()
     pages_seen = []
     for path in paths:
         payload = load_json(path)
         pagination = payload.get("pagination") or {}
         pages_seen.append((pagination.get("page"), pagination.get("total_pages")))
         for contact in payload.get("contacts") or []:
+            seen_ids.add(contact["id"])
             live = [
                 cs
                 for cs in (contact.get("contact_campaign_statuses") or [])
@@ -255,7 +264,7 @@ def collect_apollo(paths):
                 "Contacts on those pages cannot be reconciled.",
                 file=sys.stderr,
             )
-    return states
+    return states, seen_ids
 
 
 def _phone_text(value):
@@ -341,13 +350,52 @@ def main():
     parser.add_argument("--board", nargs="+", required=True, help="get_board_items_page result file(s), cold board; pass every page when the board paginates")
     parser.add_argument("--warm", nargs="+", help="get_board_items_page result file(s), Outreach Pipeline 18407308519")
     parser.add_argument("--out", help="write the update_items payload here")
+    parser.add_argument(
+        "--strict-coverage",
+        action="store_true",
+        help="refuse to run if any board item carrying an Apollo id was absent from the "
+        "Apollo pull. Pass this whenever the pull was filtered (apollo_pull.py --label-id), "
+        "so a contact the filter dropped fails loudly instead of keeping a stale stage.",
+    )
     args = parser.parse_args()
 
     inputs = list(args.apollo) + list(args.board) + (list(args.warm) if args.warm else [])
     check_freshness(inputs)
 
-    apollo = collect_apollo(args.apollo)
+    apollo, apollo_seen_ids = collect_apollo(args.apollo)
     board = collect_board(args.board)
+
+    # Coverage runs before any diffing. A board item whose Apollo id the pull never
+    # mentioned is invisible to every check below it: the stage simply stays put, and no
+    # existing warning covers it. That is the silent-drift failure mode the escalation
+    # rules care about, so it gets checked first and reported whether or not it is fatal.
+    uncovered = sorted(
+        (item["name"] or "?", apollo_id)
+        for apollo_id, item in board.items()
+        if apollo_id not in apollo_seen_ids
+    )
+    if uncovered:
+        label = "REFUSING TO RUN" if args.strict_coverage else "WARNING"
+        print(
+            f"\n{label}: {len(uncovered)} board item(s) carry an Apollo contact id that the "
+            "Apollo pull never returned. Their stage cannot be reconciled and has been left "
+            "untouched:",
+            file=sys.stderr,
+        )
+        for name, apollo_id in uncovered:
+            print(f"  {name} ({apollo_id})", file=sys.stderr)
+        if args.strict_coverage:
+            print(
+                "The pull was filtered and the filter is dropping enrolled contacts. Widen "
+                "it or drop --label-id, then re-run.",
+                file=sys.stderr,
+            )
+            raise SystemExit(2)
+        print(
+            "Deleted from Apollo is a benign cause. A filtered pull is not: re-run with "
+            "--strict-coverage to treat this as fatal.",
+            file=sys.stderr,
+        )
     if args.warm:
         warm_emails, warm_names = collect_warm(args.warm)
     else:
@@ -434,6 +482,7 @@ def main():
             group_moves.append({"itemId": item["item_id"], "groupId": target_group})
 
     print(f"\non live sequence: {len(apollo)}   board records matched: {len(apollo) - len(unmatched)}")
+    print(f"apollo contacts in the pull: {len(apollo_seen_ids)}   board items not covered by it: {len(uncovered)}")
     if unmatched:
         print(f"in Apollo but not on the board: {', '.join(n or '?' for n in unmatched)}")
     if unknown_status:
