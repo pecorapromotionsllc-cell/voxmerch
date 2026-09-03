@@ -295,29 +295,47 @@ email 2.
 
 ### Step 1: read the real state out of Apollo
 
-**Prefer `apollo_pull.py` when `APOLLO_API_KEY` is set in the environment:**
+Call `apollo_contacts_search` with `per_page: 100` **and `contact_label_ids` set to the
+campaign cohorts**, paging until `pagination.page` equals `pagination.total_pages`:
 
 ```
-python3 voxmerch-sales/scripts/apollo_pull.py --out-dir /tmp/apollo
+contact_label_ids: [
+  "69e53d3b9bb98d0015ce6dbd",   # Event Activation (82)
+  "6a5d7f5a6552e0001c0108ec",   # Event Activation Directors & VPs (24)
+  "6a737d419d8de2000d17938c",   # Tranche 1 Batch 1 - Aug 2026 (25)
+  "6a737d360fb7ee0010742078",   # Tranche 1 Batch 2 - Aug 2026 (49)
+  "69e539cfdfd9a6000da69398"    # VoxMerch SDR (17)
+]
 ```
 
-One command instead of 19 approval-gated tool calls, and the page files never pass through
-context. This exists because of the 2026-09-01 run: it fired at 7:16 AM CDT, fetched page 1
-of 19 through the MCP tool, hit a permission block on page 2, and stalled for eight and a
-half hours with nobody there to approve it. Nineteen separate calls are nineteen separate
-chances to stall, and each oversized result costs a few hundred tokens of "output too large"
-notice to learn nothing. See `voxmerch-sales/docs/scheduled-run-permissions.md`.
+Apollo ORs these, so the pull is roughly 200 contacts across 2 to 3 pages rather than the
+whole 1,839-contact account across 19. That matters for more than speed: on 2026-09-01 the
+unfiltered run fired at 7:16 AM CDT, stalled on an approval at page 2, and sat for eight and
+a half hours with nobody there to approve it. Nineteen calls are nineteen chances to stall,
+and each oversized page result costs a few hundred tokens of "output too large" notice to
+learn nothing.
 
-**Fallback, when no key is set:** call `apollo_contacts_search` with `per_page: 100`, paging
-until `pagination.page` equals `pagination.total_pages`. Do not filter by keyword; the whole
-contact set is needed.
+Three lists are left out on purpose. **Promo Distributors** is the segment deferred to
+January. **Off Track - Do Not Board** is the 2026-08-27 exclusion list, whose absence from
+the board is deliberate. **Internal Test - Do Not Contact** is Mary Anne's own record.
 
-**Narrowing the pull is worth doing but only with the coverage guard on.** The account holds
-far more contacts than the campaign touches (1,839 across 19 pages on 2026-09-01), so
-`apollo_pull.py --label-id <list id>` cuts it to a handful of pages. The risk is silent: if
-the filter drops a contact who is enrolled, the reconciler never sees them and their board
-stage simply stays stale with nothing printed. So pass `--strict-coverage` to `stage_sync.py`
-whenever the pull was filtered, and never run the filter without it.
+**Always pass `--strict-coverage` to `stage_sync.py` when the pull is filtered.** The filter's
+risk is silent: a contact who is enrolled but carries none of these labels would never be
+seen, and their board stage would simply stay stale with nothing printed. The guard turns
+that into a refusal that names each missing person. Treat the label set above as a hypothesis
+the guard is there to test, not as established fact.
+
+**If the guard reports gaps,** drop `contact_label_ids` and page the whole account for that
+run, then either add the missing contacts to one of these lists in Apollo or add their list
+here. Never silence the guard to make a run pass.
+
+`voxmerch-sales/scripts/apollo_pull.py` does the same pull in one command instead of several
+tool calls, but it needs an Apollo REST key in the environment and there is currently nowhere
+safe to put one: the cloud environment's Environment variables box is plaintext and its own
+help text says not to store credentials there, and the API-credentials feature that would
+hold it properly is not available on this account. It also needs `api.apollo.io` added to the
+environment's network allowlist, which the default **Trusted** level does not include. Leave
+it unused until a real secret store exists. The MCP path above is the supported one.
 
 Each contact carries `contact_campaign_statuses[]`. For the entry whose `emailer_campaign_id` is
 `6a6ab19632f101001070b98d`, two fields decide the stage:
