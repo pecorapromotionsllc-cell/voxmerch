@@ -308,8 +308,9 @@ contact_label_ids: [
 ]
 ```
 
-Apollo ORs these, so the pull is roughly 200 contacts across 2 to 3 pages rather than the
-whole 1,839-contact account across 19. That matters for more than speed: on 2026-09-01 the
+Apollo ORs these. Measured on 2026-09-02: **123 contacts across 2 pages**, against 1,839
+across 19 unfiltered. 55 of the 100 contacts on page 1 sit on the live sequence. That matters
+for more than speed: on 2026-09-01 the
 unfiltered run fired at 7:16 AM CDT, stalled on an approval at page 2, and sat for eight and
 a half hours with nobody there to approve it. Nineteen calls are nineteen chances to stall,
 and each oversized page result costs a few hundred tokens of "output too large" notice to

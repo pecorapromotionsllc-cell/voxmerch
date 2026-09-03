@@ -150,12 +150,14 @@ allowing `python3 -c`, which would be arbitrary code execution.
 
 ## Two other fixes that shipped alongside this
 
-**A filtered Apollo pull** cuts the run from 19 pages to 2 or 3. `apollo_contacts_search`
-accepts `contact_label_ids`, so the reconcile now pulls only the campaign cohorts (Event
-Activation, Event Activation Directors & VPs, Tranche 1 Batch 1 and 2, VoxMerch SDR: about
-200 contacts) instead of the whole 1,839-contact account. Each oversized page result costs a
-few hundred tokens of "output too large" notice, so most of the run's token bill was pages
-nobody needed. The exact list ids are in the skill's Phase 4.
+**A filtered Apollo pull** cuts the run from 19 pages to 2, measured, not estimated.
+`apollo_contacts_search` accepts `contact_label_ids`, so the reconcile now pulls only the
+campaign cohorts (Event Activation, Event Activation Directors & VPs, Tranche 1 Batch 1 and
+2, VoxMerch SDR). A test call on 2026-09-02 returned **123 contacts across 2 pages**, against
+1,839 across 19 unfiltered, with 55 of page 1's 100 contacts sitting on the live sequence.
+Each oversized page result costs a few hundred tokens of "output too large" notice, so most
+of the run's token bill was pages nobody needed. The exact list ids are in the skill's
+Phase 4.
 
 **Do not store an Apollo REST API key.** An earlier draft of this document said to put one in
 the cloud environment's **Environment variables** box. That was wrong. That box is plaintext,
