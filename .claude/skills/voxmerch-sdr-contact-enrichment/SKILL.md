@@ -295,8 +295,48 @@ email 2.
 
 ### Step 1: read the real state out of Apollo
 
-Call `apollo_contacts_search` with `per_page: 100`, paging until `pagination.page` equals
-`pagination.total_pages`. Do not filter by keyword; the whole contact set is needed.
+Call `apollo_contacts_search` with `per_page: 100` **and `contact_label_ids` set to the
+campaign cohorts**, paging until `pagination.page` equals `pagination.total_pages`:
+
+```
+contact_label_ids: [
+  "69e53d3b9bb98d0015ce6dbd",   # Event Activation (82)
+  "6a5d7f5a6552e0001c0108ec",   # Event Activation Directors & VPs (24)
+  "6a737d419d8de2000d17938c",   # Tranche 1 Batch 1 - Aug 2026 (25)
+  "6a737d360fb7ee0010742078",   # Tranche 1 Batch 2 - Aug 2026 (49)
+  "69e539cfdfd9a6000da69398"    # VoxMerch SDR (17)
+]
+```
+
+Apollo ORs these. Measured on 2026-09-02: **123 contacts across 2 pages**, against 1,839
+across 19 unfiltered. 55 of the 100 contacts on page 1 sit on the live sequence. That matters
+for more than speed: on 2026-09-01 the
+unfiltered run fired at 7:16 AM CDT, stalled on an approval at page 2, and sat for eight and
+a half hours with nobody there to approve it. Nineteen calls are nineteen chances to stall,
+and each oversized page result costs a few hundred tokens of "output too large" notice to
+learn nothing.
+
+Three lists are left out on purpose. **Promo Distributors** is the segment deferred to
+January. **Off Track - Do Not Board** is the 2026-08-27 exclusion list, whose absence from
+the board is deliberate. **Internal Test - Do Not Contact** is Mary Anne's own record.
+
+**Always pass `--strict-coverage` to `stage_sync.py` when the pull is filtered.** The filter's
+risk is silent: a contact who is enrolled but carries none of these labels would never be
+seen, and their board stage would simply stay stale with nothing printed. The guard turns
+that into a refusal that names each missing person. Treat the label set above as a hypothesis
+the guard is there to test, not as established fact.
+
+**If the guard reports gaps,** drop `contact_label_ids` and page the whole account for that
+run, then either add the missing contacts to one of these lists in Apollo or add their list
+here. Never silence the guard to make a run pass.
+
+`voxmerch-sales/scripts/apollo_pull.py` does the same pull in one command instead of several
+tool calls, but it needs an Apollo REST key in the environment and there is currently nowhere
+safe to put one: the cloud environment's Environment variables box is plaintext and its own
+help text says not to store credentials there, and the API-credentials feature that would
+hold it properly is not available on this account. It also needs `api.apollo.io` added to the
+environment's network allowlist, which the default **Trusted** level does not include. Leave
+it unused until a real secret store exists. The MCP path above is the supported one.
 
 Each contact carries `contact_campaign_statuses[]`. For the entry whose `emailer_campaign_id` is
 `6a6ab19632f101001070b98d`, two fields decide the stage:
@@ -352,6 +392,12 @@ python3 voxmerch-sales/scripts/stage_sync.py \
   --warm <outreach pipeline file> \
   --out updates.json
 ```
+
+Add `--strict-coverage` whenever the Apollo pull was filtered. It reports any board item
+whose Apollo contact id the pull never returned, and refuses rather than reconciling a set
+it knows is incomplete. Without it that case is invisible: the contact is skipped, the stage
+keeps its old value, and no existing warning covers it. `test_stage_sync.py` pins this
+behaviour down.
 
 **The script refuses to run on input more than 6 hours old.** That guard exists because it was once
 handed week-old Apollo files and proposed pushing 51 contacts backwards to `Queued`, which would have
