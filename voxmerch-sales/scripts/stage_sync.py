@@ -122,6 +122,12 @@ STAGE_TO_GROUP = {
 
 # Never pull an item back out of these. They are curation decisions a human made, and the
 # four off-limits groups in particular exist to keep people from being emailed again.
+#
+# "Review - Backfill" is here for the same reason and is easy to get wrong: the people in it
+# are still enrolled and still advancing, so their stage keeps changing and STAGE_TO_GROUP
+# would happily file them under "In Sequence" the morning after they land. That would empty
+# the review pile before anyone read it. Their stage is still reconciled; only the move is
+# suppressed, so the group holds until someone qualifies them and moves them out by hand.
 PROTECTED_GROUPS = {
     "group_mm5rb5mg",  # Archive - Company Placeholders
     "group_mm5rxery",  # Deferred - Distributors (Jan 1)
@@ -129,6 +135,7 @@ PROTECTED_GROUPS = {
     "group_mm5r45k1",  # Out of Scope - Non-US
     "group_mm2j6gqq",  # Meeting Booked
     "group_mm2jst5v",  # Not Interested / Bounced
+    "group_mm7324jv",  # Review - Backfill (needs qualification)
 }
 
 # current_step_position is the step the contact is waiting *on*, not the last one sent.
@@ -201,6 +208,15 @@ def derive_stage(status, position, reason=None):
             return "Bounced"
         if reason == "unsubscribed":
             return "Not Interested"
+        if reason == "manually finished":
+            # Somebody pulled this contact out of the sequence by hand. Apollo files that
+            # as "finished" exactly like a completed cadence, but no further touch went
+            # out, so falling through would write "Touch 3 Sent" onto a person who was
+            # deliberately stopped partway. On 2026-09-11 Mary Anne approved stopping 81
+            # end-client contacts this way, and every one of them now carries this reason.
+            # None of them sit on the board today; if one ever does, leave its stage alone
+            # and surface it rather than inventing progress that never happened.
+            return None
 
     if status in ("bounced", "failed"):
         # "failed" is undocumented but real: Apollo used it on 2026-08-05 for a contact
@@ -362,10 +378,15 @@ def main():
     unknown_status = []
     for apollo_id, state in sorted(apollo.items(), key=lambda kv: kv[1]["name"] or ""):
         target = derive_stage(state["status"], state["position"], state.get("reason"))
-        if target is None:
-            unknown_status.append((state["name"], state["status"]))
-            continue
         item = board.get(apollo_id)
+        if target is None:
+            # No stage to write. Worth a word only when the person actually has a board
+            # row that would otherwise go stale. A manually stopped contact who is not on
+            # the board is the deliberate outcome of a curation decision, and naming all
+            # of them every morning is how a real alert gets trained into background noise.
+            if item:
+                unknown_status.append((state["name"], state["status"], state.get("reason")))
+            continue
         if item and item["stage"] in TERMINAL_STAGES and target not in TERMINAL_STAGES:
             # A terminal stage is worth more than any ladder position, and it is often set
             # from knowledge Apollo does not have. Never downgrade one.
@@ -437,9 +458,9 @@ def main():
     if unmatched:
         print(f"in Apollo but not on the board: {', '.join(n or '?' for n in unmatched)}")
     if unknown_status:
-        print("\nESCALATE: unrecognised Apollo status, stage left untouched:")
-        for name, status in unknown_status:
-            print(f"  {name}: status={status!r}")
+        print("\nESCALATE: Apollo state the sync will not map, stage left untouched:")
+        for name, status, reason in unknown_status:
+            print(f"  {name}: status={status!r} reason={reason!r}")
     if already_warm:
         for name, reason in already_warm:
             print(f"  skip promotion: {name} ({reason})")
