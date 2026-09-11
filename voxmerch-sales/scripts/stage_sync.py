@@ -122,6 +122,12 @@ STAGE_TO_GROUP = {
 
 # Never pull an item back out of these. They are curation decisions a human made, and the
 # four off-limits groups in particular exist to keep people from being emailed again.
+#
+# "Review - Backfill" is here for the same reason and is easy to get wrong: the people in it
+# are still enrolled and still advancing, so their stage keeps changing and STAGE_TO_GROUP
+# would happily file them under "In Sequence" the morning after they land. That would empty
+# the review pile before anyone read it. Their stage is still reconciled; only the move is
+# suppressed, so the group holds until someone qualifies them and moves them out by hand.
 PROTECTED_GROUPS = {
     "group_mm5rb5mg",  # Archive - Company Placeholders
     "group_mm5rxery",  # Deferred - Distributors (Jan 1)
@@ -129,6 +135,7 @@ PROTECTED_GROUPS = {
     "group_mm5r45k1",  # Out of Scope - Non-US
     "group_mm2j6gqq",  # Meeting Booked
     "group_mm2jst5v",  # Not Interested / Bounced
+    "group_mm7324jv",  # Review - Backfill (needs qualification)
 }
 
 # current_step_position is the step the contact is waiting *on*, not the last one sent.
