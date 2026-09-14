@@ -29,3 +29,15 @@ by assuming calendar days, so state the working out when a date matters.
 Say where a figure came from when it could be contested: "Apollo says", "the board says", "counted in
 Sent Items". Apollo's counters and the Monday board disagreed for a week without anyone noticing,
 and the fix depended on being able to tell which one was being quoted.
+
+## Apollo.io is paused (2026-09-14)
+
+Mary Anne paused all Apollo.io activity on 2026-09-14. Sending from it got the
+maryanne@voxmerch.com account flagged by Microsoft and mail is landing in spam folders.
+
+**No Apollo call, read or write, from any run in this repo until she lifts the pause in person.**
+That includes the weekday Sequence Stage reconcile, the deliverability line in any status report,
+contact sourcing, enrichment, and every form of sequence enrollment or re-activation. Do not write
+Monday board stages from Apollo state while the pause holds; a stage copied out of a paused system
+is drift, not truth. The full version of this rule, with what a paused run should do instead, is at
+the top of `.claude/skills/voxmerch-sdr-contact-enrichment/SKILL.md`.
