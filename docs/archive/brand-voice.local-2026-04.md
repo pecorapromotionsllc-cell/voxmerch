@@ -19,6 +19,8 @@ enforcement:
 open-questions:
   share-with-team: false
 ---
+> **Archived 2026-09-24. Not current.** Companion config to `brand-voice-guidelines-2026-04.md`. Its target audience (enterprise marketing teams, procurement leads) is the end client VoxMerch does not sell to. Kept for the record only; nothing loads it.
+
 # Brand Context
 
 ## Company Name

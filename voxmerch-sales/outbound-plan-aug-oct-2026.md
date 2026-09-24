@@ -426,7 +426,8 @@ the approval gates. There is nothing worth salvaging, for reasons the founder id
   anything. Treat all prior Apollo performance data as void rather than as a baseline.
 
 **Distributor outreach outside HALO is deferred to January 1.** The Promo Distributors sequence
-stays off. Only one sequence gets built now, for event activation companies and meeting planners.
+stays off. *(Superseded 2026-09-24: the distributor channel is closed, not deferred. Only HALO
+distributors who have already presented VoxMerch to their clients remain in scope.)* Only one sequence gets built now, for event activation companies and meeting planners.
 
 **Build specification for the new sequence:**
 - People-level contacts only. Never enroll a company placeholder.
@@ -572,7 +573,7 @@ revisited.
 | Co-staff every partner's first event | Gate to Advanced and Enterprise with partners of real scale. Unaffordable otherwise. |
 | Remove the Apollo approval gates | Sequence scrapped entirely and rebuilt from scratch with a clean people-level, US-only audience. |
 | HALO AEs as an introduction source into agencies | Dead. AEs keep that business rather than hand it to a competitor for the same client. |
-| Distributor outreach in scope | Deferred to January 1. HALO covers the segment until then. |
+| Distributor outreach in scope | Deferred to January 1. HALO covers the segment until then. **Superseded 2026-09-24: channel closed, no reopening date. HALO distributors who have already presented VoxMerch to clients are the only exception.** |
 | Job postings as the highest-fidelity targeting signal, worked daily via Apify | **Cut 2026-08-01 after live testing.** 2% hit rate on title-based discovery; monitoring our own target list produced ~5 weak signals across 30 companies over 6 months and not one named a city and a date. Agencies do not post per-event staffing publicly. Do not rebuild. |
 | Q4 trade show exhibitor lists as a prospect source | **Cut 2026-08-01.** Exhibitors are brands and VoxMerch does not sell to brands. Brand-to-agency attribution is not public and does not scrape, and a brand-side list is worthless until signed partners exist to receive it. |
 | Voice capture "5 to 30 seconds" with artwork following | Externally: attendees speak **up to 30 seconds** and the artwork appears **40 seconds later**. Use this phrasing in all copy. |

@@ -51,11 +51,14 @@ if [[ -z "$POST_TEXT" ]]; then
 fi
 
 # ── CHECK 1: Em dashes ──
-if echo "$ALL_TEXT" | grep -qP '\x{2014}|\x{2013}|—|–'; then
-  ERRORS+="EM DASH DETECTED: Replace em dashes (—) or en dashes (–) with \"...\" per brand voice rules.
+# Literal byte match on purpose. The earlier \x{2014} PCRE form errors out (grep exit 2, so the
+# check silently passes) whenever LANG is not UTF-8, which is the default in this container and in
+# Git Bash on Windows. Verified 2026-09-24.
+if echo "$ALL_TEXT" | grep -q -e '—' -e '–'; then
+  ERRORS+="EM DASH DETECTED: Em dashes (—) and en dashes (–) are never allowed. Rewrite the sentence; use a period, a comma, or two sentences.
 "
   # Show which lines contain them
-  LINES_WITH_DASHES=$(echo "$ALL_TEXT" | grep -nP '\x{2014}|\x{2013}|—|–' || true)
+  LINES_WITH_DASHES=$(echo "$ALL_TEXT" | grep -n -e '—' -e '–' || true)
   if [[ -n "$LINES_WITH_DASHES" ]]; then
     ERRORS+="  Found in: $LINES_WITH_DASHES
 "
@@ -111,34 +114,33 @@ if [[ "$PLATFORM" == "instagram" && "$MEDIA_URLS" -eq 0 ]]; then
 fi
 
 # ── CHECK 4: Banned words ──
+# Trimmed 2026-09-24. The old list included "can", "may", "just", "that", "very", "could" and
+# "however", which blocked essentially every post. Only AI filler and the house buzzword list stay.
 BANNED_WORDS=(
-  "can" "may" "just" "that" "very" "really" "literally" "actually"
-  "certainly" "probably" "basically" "could" "maybe"
-  "delve" "embark" "enlightening" "esteemed"
-  "craft" "crafting" "imagine" "realm" "game-changer"
-  "unlock" "discover" "skyrocket" "abyss"
-  "revolutionize" "disruptive"
-  "utilize" "utilizing"
+  "delve" "embark" "enlightening" "esteemed" "realm" "abyss"
+  "skyrocket" "revolutionize" "revolutionary" "disruptive"
+  "utilize" "utilizing" "leverage"
   "tapestry" "illuminate" "unveil" "pivotal" "intricate" "elucidate"
-  "hence" "furthermore" "however" "harness"
-  "exciting" "groundbreaking" "cutting-edge" "remarkable"
-  "boost" "powerful" "inquiries" "ever-evolving"
+  "furthermore" "harness" "groundbreaking" "ever-evolving"
+  "innovative" "seamless" "seamlessly" "synergy" "cutting-edge" "state-of-the-art"
+  "game-changing" "game-changer" "world-class" "best-in-class"
 )
 
 BANNED_PHRASES=(
   "shed light"
-  "not alone"
   "in a world where"
   "dive deep"
   "remains to be seen"
   "glimpse into"
-  "navigating"
+  "navigating the"
   "landscape"
-  "stark"
-  "testament"
+  "testament to"
   "in summary"
   "in conclusion"
   "moreover"
+  "excited to share"
+  "thrilled to announce"
+  "excited to announce"
 )
 
 # Convert post text to lowercase for matching
