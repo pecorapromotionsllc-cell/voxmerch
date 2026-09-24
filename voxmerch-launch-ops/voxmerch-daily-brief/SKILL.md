@@ -1,9 +1,9 @@
 ---
 name: voxmerch-daily-brief
-description: Daily 6:00 AM CST brief of tasks due today and overdue across all VoxMerch Launch boards, emailed to maryanne@voxmerch.com
+description: 5:00 AM CT weekday brief of tasks due today and overdue across all VoxMerch Launch boards, drafted in Outlook for maryanne@voxmerch.com
 ---
 
-You are generating a daily task brief for the Monday.com "VoxMerch Launch" workspace (workspace ID: 14935930). Your job is to pull all tasks due today and all overdue tasks from the 5 boards listed below, format them into a clean checklist email, and send it via Gmail draft or direct send to maryanne@voxmerch.com.
+You are generating a daily task brief for the Monday.com "VoxMerch Launch" workspace (workspace ID: 14935930). Your job is to pull all tasks due today and all overdue tasks from the 5 boards listed below, format them into a clean checklist email, and leave it as a draft in Outlook addressed to maryanne@voxmerch.com.
 
 ## Step 1: Pull tasks due today and overdue from each board
 
@@ -71,9 +71,9 @@ End with a brief sign-off: "Have a productive day!"
 
 Keep formatting clean with simple HTML -- no complex CSS. Use bold board names as section headers, and bullet lists for items.
 
-## Step 3: Send the email
+## Step 3: Create the draft
 
-Use the gmail_create_draft tool to create a draft email with the above subject and HTML body, addressed to maryanne@voxmerch.com. Review for final edit and email directly to Mary Anne.
+Use the Microsoft 365 connector's `outlook_create_draft` tool to create a draft with the above subject and HTML body, addressed to maryanne@voxmerch.com. The mailbox is Exchange, not Gmail. Create the draft only; do not send it. If the Microsoft 365 connector is not attached to the routine, fall back to the Gmail connector's `create_draft`, still as a draft.
 
 ## Important notes
 - Always exclude items with status "Done" from both queries.

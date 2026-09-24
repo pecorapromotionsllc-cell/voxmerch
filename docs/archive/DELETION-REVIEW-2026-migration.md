@@ -1,3 +1,5 @@
+> **Archived 2026-09-24.** One-time checklist for the April to July 2026 move from OneDrive and Dropbox into this repo. The migration is complete and the repo is on GitHub. Kept for the record only. The one live warning it contained (do not delete the OneDrive `Claude\Scheduled\voxmerch-daily-brief\` folder) now lives in `voxmerch-launch-ops/voxmerch-daily-brief/README.md`.
+
 # Originals to delete (review before removing anything)
 
 Everything listed below was copied into the new `C:\Users\marya\Projects\VoxMerch\` structure. The originals still exist at their old locations. This file groups them into safety tiers so you can approve deletion tier-by-tier instead of all at once.

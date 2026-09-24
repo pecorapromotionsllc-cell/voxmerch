@@ -1,3 +1,5 @@
+> **Archived 2026-09-24. Not current.** Generated 2026-04-09 from a brand book that predates the launch model. It describes a direct-to-brand fulfillment vendor and positions against "generic merchandise vendors." VoxMerch is B2B2B, sells only through the events channel, and treats the branded merchandise industry as a partner, not a competitor. Current voice rules live in the account-level `voxmerch-voice` and `mary-anne-voice` skills and in the workspace instructions. Kept for the record only; nothing loads it.
+
 # Vox Merch Brand Voice Guidelines
 
 ## Generation Metadata

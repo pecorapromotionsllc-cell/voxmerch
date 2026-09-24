@@ -14,7 +14,8 @@ sequence's Contacts tab.
 This replaces "VoxMerch - Event Activation 3-Touch" (69e5407d76f3d1001dda3c7b), which is being
 scrapped: the audience contained company names without people, international companies out of
 scope, and the sequence was misconstructed from the start. All performance data from it is void.
-"VoxMerch - Promo Distributors 3-Touch" stays off until January 1.
+"VoxMerch - Promo Distributors 3-Touch" stays off. (Originally "until January 1"; as of 2026-09-24 the
+distributor channel is closed with no reopening date.)
 
 ## Verified state (checked live 2026-07-30)
 

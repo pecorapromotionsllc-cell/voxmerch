@@ -71,7 +71,7 @@ routine back where it started, that firing twice on the same Sunday is a no-op, 
 by hand is reported rather than overwritten, and that the dashboard still refreshes one hour after
 the Apollo sync under both offsets. Exit code is non-zero on any failure.
 
-Last run 2026-08-24: all checks passed.
+Last run 2026-09-24: all checks passed.
 
 ## Ordering on transition day
 

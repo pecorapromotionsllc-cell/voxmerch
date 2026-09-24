@@ -50,8 +50,10 @@ Apollo sender email account: maryanne@voxmerch.com (Account ID: `6a26172e9975260
 - `69e5407d76f3d1001dda3c7b` — the old Event Activation sequence. Deactivated 2026-07-30, renamed
   "[DEPRECATED - DO NOT USE]", and its templates overwritten with deprecation notices. Enrolling a
   contact here would send them a notice saying the sequence is deprecated.
-- `69e5434ea954b4001d4e951b` — Promo Distributors. **Distributor outreach is deferred to January 1**;
-  HALO covers that segment until then. Do not source, enrich, or enroll distributor contacts.
+- `69e5434ea954b4001d4e951b` — Promo Distributors. **VoxMerch no longer sells through the distributor
+  channel** (decision recorded 2026-09-24; the earlier "deferred to January 1" note is void). The only
+  exception is HALO distributors who have already presented VoxMerch to their clients, and they are not
+  sourced by this skill. Do not source, enrich, or enroll distributor contacts.
 
 Apollo label for new contacts: `"Event Activation"`
 
@@ -77,7 +79,7 @@ anyone found in them:**
 | Group ID | Name | Why |
 |---|---|---|
 | `group_mm5rb5mg` | Archive - Company Placeholders | Dead company-level records, pending deletion |
-| `group_mm5rxery` | Deferred - Distributors (Jan 1) | Wrong segment until January |
+| `group_mm5rxery` | Deferred - Distributors (Jan 1) | Distributor channel is closed, not deferred. Board group name is historical. |
 | `group_mm5rsxn3` | Do Not Enroll - Prior Sequence (Call Only) | Already emailed by the deprecated sequence. Emailing them a fresh cold intro damages the account. Phone only, via Debra. |
 | `group_mm5r45k1` | Out of Scope - Non-US | Fails the US-only rule |
 
@@ -104,7 +106,7 @@ no title and no email. Company-level records that need real people sourced.
 is empty, and the name is a real person. Only process if Notes does not contain a re-check entry from
 the current month (`[Re-check YYYY-MM-` pattern).
 
-Skip any company in the Promo Distributor segment. That segment is deferred.
+Skip any company in the Promo Distributor segment. That channel is closed.
 
 If nothing qualifies, report "No companies ready for enrichment" and exit.
 
