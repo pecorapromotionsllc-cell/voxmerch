@@ -1,8 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "mcp__Apollo-io",
-      "mcp__monday-com",
+      "mcp__Apollo_io",
+      "mcp__monday_com",
       "mcp__github__pull_request_read",
       "mcp__github__list_pull_requests",
       "mcp__github__create_pull_request",
@@ -15,10 +15,10 @@
       "Bash(git checkout:*)"
     ],
     "ask": [
-      "mcp__Apollo-io__apollo_email_account_purchase_create",
-      "mcp__Apollo-io__apollo_emailer_messages_send_now",
-      "mcp__Apollo-io__apollo_sequences_create",
-      "mcp__Apollo-io__apollo_sequences_update"
+      "mcp__Apollo_io__apollo_email_account_purchase_create",
+      "mcp__Apollo_io__apollo_emailer_messages_send_now",
+      "mcp__Apollo_io__apollo_sequences_create",
+      "mcp__Apollo_io__apollo_sequences_update"
     ]
   }
 }
